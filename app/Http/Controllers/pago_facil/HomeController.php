@@ -9,8 +9,7 @@ use App\UsersKio_Model;
 class HomeController extends Controller
 {
     public function index(){
-        
-        echo UsersKio_Model::count(); 
-        // return view('pago_facil.home.index', compact(''));
+                
+        return view('pago_facil.home.index', compact(''));
     }
 }
