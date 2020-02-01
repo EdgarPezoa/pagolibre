@@ -40,7 +40,10 @@
     <body>
         <div id="page-container" class="sidebar-l sidebar-o side-scroll header-navbar-fixed">
         @include('layouts.header')  
-       
+        <main id="main-container">
+            @yield('pageHeader')
+            @yield('content')
+        </main>
         @include('layouts.footer')  
         </div>        
         
