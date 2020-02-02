@@ -12,7 +12,7 @@ class HomeController extends Controller
     public function index(){
 
         // dd(Hash::make('eddy'));
-        dd(UsersKio_Model::all());
+        // dd(UsersKio_Model::all());
         return view('pago_facil.home.index', compact(''));
     }
 }
