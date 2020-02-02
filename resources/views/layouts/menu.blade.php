@@ -14,10 +14,7 @@
                 <ul class="nav-main">
                     <li>
                         <a class="active text-black" href="{{ url('/') }}"><i class="si si-speedometer"></i><span class="sidebar-mini-hide">Escritorio</span></a>
-                    </li>                                                                                                                                                      
-                    <li>
-                        <a class="text-black" href="{{ url('/') }}"><i class="si si-speedometer"></i><span class="sidebar-mini-hide">Escritorio</span></a>
-                    </li>                                                                                                                                                      
+                    </li>                                                                                                                                                   
                 </ul>
             </div>            
         </div>        

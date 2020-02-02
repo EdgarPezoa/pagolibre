@@ -32,7 +32,8 @@
                 </div>
                 <div class="tab-pane fade fade-up" id="btabs-animated-slideup-historico">
                     <h4 class="font-w300 push-15">Histórico</h4>
-                    <p>Content slides up..</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa id repellendus praesentium repellat provident temporibus in recusandae magni? Rem voluptas repellat reprehenderit quae aperiam laboriosam commodi architecto eum amet voluptate?</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit autem placeat excepturi iusto quo illum odio sint voluptate recusandae incidunt porro obcaecati amet quis, repellat itaque. Modi odit distinctio nihil.</p>
                 </div>
                 <div class="tab-pane fade fade-up" id="btabs-animated-slideup-otros">
                     <h4 class="font-w300 push-15">Otros</h4>
