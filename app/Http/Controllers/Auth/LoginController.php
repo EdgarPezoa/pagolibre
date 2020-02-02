@@ -47,8 +47,7 @@ class LoginController extends Controller
 
     protected function authenticated(Request $request, $user){
         // QUE HACE LUEGO DE LOGEARSE (LOG)
-        Auth::loginUsingId($user->fld_Id);
-        $request->session()->put('name', $user->fld_UserName);
+        Auth::loginUsingId($user->fld_Id);        
         return redirect('/');
         
 
