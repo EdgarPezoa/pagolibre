@@ -10,4 +10,8 @@ class UsersKio_Model extends Model
     protected $table = 'tbl_SystemUser';    
     protected $primaryKey = 'fld_id';
     protected $dateFormat = 'Y-d-m H:i:s';
+
+    public function getAuthPassword(){
+        return $this->fld_UserPassword;
+    }
 }
