@@ -9,7 +9,8 @@
  */
 /* normalize.css v3.0.2 | MIT License | git.io/normalize */
 html {
-  font-family: sans-serif;
+  /* font-family: sans-serif; */
+  font-family: 'Montserrat', sans-serif;
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
 }
@@ -16922,3 +16923,12 @@ div.tagsinput span.tag a:hover {
 
 
 .logo {width:100%; }
+.header-custom {
+  color: #fff;
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  text-shadow: 2px 2px 7px #000000;
+}
+.header-custom > h2 {text-transform: uppercase;}
+.header-custom > p {margin-bottom: 0px;}

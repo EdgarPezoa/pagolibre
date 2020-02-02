@@ -1,10 +1,11 @@
 @extends('layouts.master')
  @section('pageHeader')
- <div class="content bg-image overflow-hidden" style="background-image: url('{{ asset('img/377.jpg') }}');">
-    <div class="push-50-t push-15 text-right">
-        <h1 class="h2 text-white animated zoomIn">Escritorio</h1>
-        <h2 class="h5 text-white-op animated zoomIn">Bienvenido!! {{ Auth::user()->fld_UserName.' '.Auth::user()->fld_UserSurname }}</h2>        
-    </div>
+ <div class="content bg-image overflow-hidden" style="background-image: url('{{ asset('img/377.jpg') }}'); min-height:250px; position:relative;">
+    <div class="header-custom animated zoomIn text-right">
+        <h2>Con pago libre has ahorrado:$89.520</h2>
+        <p>Total pagado en PagoLibre ultimos 12 meses: $298.400</p>
+        <p>Valor cobrado por distribuidora en los ultimos 12 meses: $387.920</p>
+    </div>    
 </div>
 @endsection
 
@@ -18,7 +19,7 @@
                     <a href="#btabs-animated-slideup-resumen">Resumen</a>
                 </li>
                 <li>
-                    <a href="#btabs-animated-slideup-historico">Historico</a>
+                    <a href="#btabs-animated-slideup-historico">Histórico</a>
                 </li>                
                 <li>
                     <a href="#btabs-animated-slideup-otros">Otros</a>
@@ -26,16 +27,16 @@
             </ul>
             <div class="block-content tab-content">
                 <div class="tab-pane fade fade-up in active" id="btabs-animated-slideup-resumen">
-                    <h4 class="font-w300 push-15">Home Tab</h4>
-                    <p>Content slides up..</p>
+                    <h4 class="font-w300 push-15">Resumen</h4>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea, magnam neque ullam dignissimos quaerat doloribus maiores facilis quae incidunt alias cum, totam iusto vero mollitia? Consequuntur alias ducimus debitis dolor?</p>
                 </div>
                 <div class="tab-pane fade fade-up" id="btabs-animated-slideup-historico">
-                    <h4 class="font-w300 push-15">Profile Tab</h4>
+                    <h4 class="font-w300 push-15">Histórico</h4>
                     <p>Content slides up..</p>
                 </div>
                 <div class="tab-pane fade fade-up" id="btabs-animated-slideup-otros">
-                    <h4 class="font-w300 push-15">Settings Tab</h4>
-                    <p>Content slides up..</p>
+                    <h4 class="font-w300 push-15">Otros</h4>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea, magnam neque ullam dignissimos quaerat doloribus maiores facilis quae incidunt alias cum, totam iusto vero mollitia? Consequuntur alias ducimus debitis dolor?Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea, magnam neque ullam dignissimos quaerat doloribus maiores facilis quae incidunt alias cum, totam iusto vero mollitia? Consequuntur alias ducimus debitis dolor?Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea, magnam neque ullam dignissimos quaerat doloribus maiores facilis quae incidunt alias cum, totam iusto vero mollitia? Consequuntur alias ducimus debitis dolor?</p>
                 </div>
             </div>
         </div>                        
