@@ -33,7 +33,7 @@
         <!-- END Icons -->
         
         <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400italic,600,700%7COpen+Sans:300,400,400italic,600,700">        
-        @yield('cssPage')        
+        @yield('cssPage')
         <link rel="stylesheet" id="css-main" href="{{ asset('css/oneui.css') }}">                
         
     </head>
