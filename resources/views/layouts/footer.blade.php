@@ -1,8 +1,8 @@
 <footer id="page-footer" class="content-mini content-mini-full font-s12 bg-gray-lighter clearfix">
     <div class="pull-right">
-        Crafted with <i class="fa fa-heart text-city"></i> by <a class="font-w600" href="http://goo.gl/vNS3I" target="_blank">pixelcave</a>
+        Creado con <i class="fa fa-heart text-city"></i> por <a class="font-w600" href="http://goo.gl/vNS3I" target="_blank">Edgar Pezoa</a>
     </div>
     <div class="pull-left">
-        <a class="font-w600" href="javascript:void(0)" target="_blank">OneUI 1.0</a> &copy; <span class="js-year-copy"></span>
+        <a class="font-w600" href="javascript:void(0)" target="_blank">Pago Libre</a> &copy; 2020
     </div>
 </footer>

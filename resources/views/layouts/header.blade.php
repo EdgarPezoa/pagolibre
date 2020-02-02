@@ -7,11 +7,15 @@
                     <img src="" alt="Avatar">                    
                     <span class="caret"></span>
                 </button>
-                <ul class="dropdown-menu dropdown-menu-right">
-                    <li class="dropdown-header">Perfil</li>                                
+                <ul class="dropdown-menu dropdown-menu-right">                    
                     <li>
-                        <a tabindex="-1" href="base_pages_login.html">
-                            <i class="si si-logout pull-right"></i>Desconectar
+                        <a tabindex="-1" href="">
+                            <i class="si si-logout pull-right"></i>Configuración
+                        </a>
+                    </li>
+                    <li>
+                        <a tabindex="-1" href="">
+                            <i class="si si-logout pull-right"></i>Cerrar Sesión
                         </a>
                     </li>
                 </ul>
@@ -24,10 +28,10 @@
                 <i class="fa fa-navicon"></i>
             </button>
         </li>
-        <li class="hidden-xs hidden-sm">                        
+        <!-- <li class="hidden-xs hidden-sm">                        
             <button class="btn btn-default" data-toggle="layout" data-action="sidebar_mini_toggle" type="button">
                 <i class="fa fa-ellipsis-v"></i>
             </button>
-        </li>                               
+        </li>                                -->
     </ul>    
 </header>
