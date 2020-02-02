@@ -22,13 +22,6 @@ class LoginController extends Controller
     use AuthenticatesUsers;
 
     /**
-     * Where to redirect users after login.
-     *
-     * @var string
-     */
-    protected $redirectTo = '/';
-
-    /**
      * Create a new controller instance.
      *
      * @return void
@@ -39,6 +32,10 @@ class LoginController extends Controller
     }
 
     //NUEVAS FUNCIONES
+    protected function redirectTo(){
+        return route('index');
+    }
+
     public function username(){
         return 'fld_UserLoginName';
     }
@@ -48,7 +45,7 @@ class LoginController extends Controller
     }
 
     protected function authenticated(Request $request, $user){
-        // QUE HACE LUEGO DE LOGEARSE
+        // QUE HACE LUEGO DE LOGEARSE (LOG)
     }
 
 }
