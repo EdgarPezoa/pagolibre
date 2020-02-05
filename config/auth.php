@@ -67,7 +67,7 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
-            'model' => App\UsersKio_Model::class,
+            'model' => App\Models\UsuarioModel::class,
         ],
 
         // 'users' => [
