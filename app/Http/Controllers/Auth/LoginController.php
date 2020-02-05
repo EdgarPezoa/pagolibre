@@ -45,6 +45,18 @@ class LoginController extends Controller
         return view('auth.login');
     }
 
+    public function attemptLogin(Request $request){
+        $email = $request->email;
+        $password = $request->password;
+        $remember = $request->remember;
+        // CUSTOM LOGIN, ADMINS, BANNED, ETC
+        if (Auth::attempt(['email' => $email, 'password' => $password], $remember)) {
+            return true;
+        }else{
+            return false;
+        }
+    }
+
     protected function authenticated(Request $request, $user){
         // QUE HACE LUEGO DE LOGEARSE (LOG)
         Auth::loginUsingId($user->id_usuario);
