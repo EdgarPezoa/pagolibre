@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'default' => env('DB_CONNECTION', 'sqlsrv'),
+    'default' => env('DB_CONNECTION', 'pagolibre_sqlsrv'),
 
     /*
     |--------------------------------------------------------------------------
@@ -67,13 +67,24 @@ return [
             'sslmode' => 'prefer',
         ],
 
-        'sqlsrv' => [
+        'KlmIOT_sqlsrv' => [
             'driver' => 'sqlsrv',
-            'host' => env('DB_HOST', 'localhost'),
-            'port' => env('DB_PORT', '1433'),
-            'database' => env('DB_DATABASE', 'forge'),
-            'username' => env('DB_USERNAME', 'forge'),
-            'password' => env('DB_PASSWORD', ''),
+            'host' => env('KlmIOT_DB_HOST', 'localhost'),
+            'port' => env('KlmIOT_DB_PORT', '1433'),
+            'database' => env('KlmIOT_DB_DATABASE', 'forge'),
+            'username' => env('KlmIOT_DB_USERNAME', 'forge'),
+            'password' => env('KlmIOT_DB_PASSWORD', ''),
+            'charset' => 'utf8',
+            'prefix' => '',
+        ],
+
+        'pagolibre_sqlsrv' => [
+            'driver' => 'sqlsrv',
+            'host' => env('pagolibre_DB_HOST', 'localhost'),
+            'port' => env('pagolibre_DB_PORT', '1433'),
+            'database' => env('pagolibre_DB_DATABASE', 'forge'),
+            'username' => env('pagolibre_DB_USERNAME', 'forge'),
+            'password' => env('pagolibre_DB_PASSWORD', ''),
             'charset' => 'utf8',
             'prefix' => '',
         ],
