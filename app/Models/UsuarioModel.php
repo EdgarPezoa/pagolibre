@@ -14,10 +14,9 @@ class UsuarioModel extends Authenticatable
     protected $primaryKey = 'id_usuario';
     public $timestamps = true;
 
-
-    // protected $fillable = [
-        
-    // ];
+    protected $fillable = [
+        'email',
+    ];
 
     protected $hidden = [
         'password',
