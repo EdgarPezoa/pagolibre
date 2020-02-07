@@ -40,7 +40,7 @@
     </head>
     <body>
         <div id="page-container" class="sidebar-l sidebar-o side-scroll header-navbar-fixed">
-        @include('layouts.backend.header')  
+        @include('layouts.pago_libre.backend.header')  
         <main id="main-container">            
             @yield('pageHeader')
             <div class="content content-narrow">
@@ -48,7 +48,7 @@
             </div>
 
         </main>
-        @include('layouts.backend.footer')  
+        @include('layouts.pago_libre.backend.footer')  
         </div>        
         
         <script src="{{ asset('js/core/jquery.min.js') }}"></script>

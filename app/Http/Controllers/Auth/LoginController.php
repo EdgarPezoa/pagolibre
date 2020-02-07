@@ -34,7 +34,7 @@ class LoginController extends Controller
 
     //NUEVAS FUNCIONES
     protected function redirectTo(){
-        return route('index');
+        return route('intranet.index');
     }
 
     public function username(){

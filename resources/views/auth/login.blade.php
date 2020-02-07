@@ -1,4 +1,4 @@
-@extends('layouts.frontend.master')
+@extends('layouts.pago_libre.frontend.master')
 
 @section('content')
 <div class="row">

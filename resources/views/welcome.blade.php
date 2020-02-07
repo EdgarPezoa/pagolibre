@@ -1,1 +1,1 @@
-@extends('layouts.backend.master')
+@extends('layouts.pago_libre.backend.master')

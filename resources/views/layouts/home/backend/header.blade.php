@@ -1,4 +1,4 @@
-@include('layouts.backend.menu')             
+@include('layouts.pago_libre.backend.menu')             
 <header id="header-navbar" class="content-mini content-mini-full">    
     <ul class="nav-header pull-right">
         <li>

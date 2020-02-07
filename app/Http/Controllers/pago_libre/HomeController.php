@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\pago_facil;
+namespace App\Http\Controllers\pago_libre;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Auth;
 use App\UsersKio_Model;
+use Auth;
 use Hash;
 
 class HomeController extends Controller
@@ -14,6 +14,6 @@ class HomeController extends Controller
 
         // dd(Hash::make('rodolfo'));
         // dd(UsersKio_Model::all());        
-        return view('pago_facil.home.index', compact(''));
+        return view('pago_libre.home.index', compact(''));
     }
 }
