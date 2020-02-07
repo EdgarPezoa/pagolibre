@@ -1,24 +1,21 @@
-@extends('layouts.app')
-
+@extends('layouts.frontend.master')
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Reset Password') }}</div>
-
-                <div class="card-body">
-                    <form method="POST" action="{{ route('password.request') }}" aria-label="{{ __('Reset Password') }}">
-                        @csrf
-
-                        <input type="hidden" name="token" value="{{ $token }}">
-
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ $email ?? old('email') }}" required autofocus>
-
+<div class="row">
+    <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4">        
+        <div class="block block-themed animated fadeIn">
+            <div class="block-header bg-primary">                
+                <h3 class="block-title">{{ __('Reset Password') }}</h3>
+            </div>
+            <div class="block-content block-content-full block-content-narrow">                
+                <h1 class="h2 font-w600 push-30-t push-5">KIO</h1>                                                       
+                <form class="js-validation-login form-horizontal push-30-t push-50" aria-label="{{ __('Reset Password') }}" action="{{ route('password.request') }}" method="POST">
+                    @csrf
+                    <input type="hidden" name="token" value="{{ $token }}">
+                    <div class="form-group">
+                        <div class="col-xs-12">
+                            <div class="form-material form-material-primary floating">
+                                <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="" value="{{ $email ?? old('email') }}" required autofocus>
+                                <label for="email">{{ __('E-Mail Address') }}</label>
                                 @if ($errors->has('email'))
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $errors->first('email') }}</strong>
@@ -26,40 +23,40 @@
                                 @endif
                             </div>
                         </div>
-
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
-
-                            <div class="col-md-6">
+                    </div>
+                    <div class="form-group">
+                        <div class="col-xs-12">
+                            <div class="form-material form-material-primary floating">
                                 <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
-
-                                @if ($errors->has('password'))
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                @endif
+                                <label for="password">{{ __('Password') }}</label>
                             </div>
+                            @if ($errors->has('password'))
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $errors->first('password') }}</strong>
+                                </span>
+                            @endif
                         </div>
-
-                        <div class="form-group row">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
-
-                            <div class="col-md-6">
+                    </div>
+                    <div class="form-group">
+                        <div class="col-xs-12">
+                            <div class="form-material form-material-primary floating">
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
-                            </div>
+                                <label for="password_confirmation">{{ __('Confirm Password') }}</label>
+                            </div>                           
                         </div>
-
-                        <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Reset Password') }}
-                                </button>
-                            </div>
+                    </div>           
+                    <div class="form-group">
+                        <div class="col-xs-12">
+                            <button class="btn btn-block btn-primary" type="submit">{{ __('Reset Password') }}</button>
                         </div>
-                    </form>
-                </div>
+                    </div>
+                </form>                
             </div>
-        </div>
+        </div>        
     </div>
+</div>
+
+<div class="push-10-t text-center animated fadeInUp">
+<small class="text-muted font-w600">2020 &copy; KIO 1.0</small>
 </div>
 @endsection

@@ -1,5 +1,5 @@
-@extends('layouts.master')
- @section('pageHeader')
+@extends('layouts.backend.master')
+@section('pageHeader')
  <div class="content bg-image overflow-hidden" style="background-image: url('{{ asset('img/377.jpg') }}'); min-height:250px; position:relative;">
     <div class="header-custom animated zoomIn text-right">
         <h2>Con pago libre has ahorrado:$89.520</h2>
