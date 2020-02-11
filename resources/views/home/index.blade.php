@@ -12,10 +12,8 @@
 @endsection
 
 @section('content')
-<div class="col-md-4">
-    <img src="" alt="">
-</div>
-<div class="col-md-8">
+
+<div class="col-md-12">
     <div class="homeImagebackground">
         <h1 class="text-center homeTitle">PLATAFORMA DE PAGOS PARA COMUNIDADES QUE OPERAN COMO <span>CLIENTES LIBRE</span></h1>
     </div>
