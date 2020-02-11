@@ -1,19 +1,22 @@
 <!DOCTYPE html>
 <!--[if IE 9]>         <html class="ie9 no-focus"> <![endif]-->
-<!--[if gt IE 9]><!--> <html class="no-focus"> <!--<![endif]-->
-    <head>
-        <meta charset="utf-8">
+<!--[if gt IE 9]><!-->
+<html class="no-focus">
+<!--<![endif]-->
 
-        <title>KIO</title>
+<head>
+    <meta charset="utf-8">
 
-        <meta name="description" content="OneUI - Admin Dashboard Template & UI Framework created by pixelcave and published on Themeforest">
-        <meta name="author" content="pixelcave">
-        <meta name="robots" content="noindex, nofollow">
-        <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1.0">
+    <title>@yield('title') | KIO</title>
 
-        <!-- Icons -->
-        <!-- The following icons can be replaced with your own, they are used by desktop and mobile browsers -->
-        <!-- <link rel="shortcut icon" href="assets/img/favicons/favicon.png">
+    <meta name="description" content="OneUI - Admin Dashboard Template & UI Framework created by pixelcave and published on Themeforest">
+    <meta name="author" content="pixelcave">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1.0">
+
+    <!-- Icons -->
+    <!-- The following icons can be replaced with your own, they are used by desktop and mobile browsers -->
+    <!-- <link rel="shortcut icon" href="assets/img/favicons/favicon.png">
 
         <link rel="icon" type="image/png" href="assets/img/favicons/favicon-16x16.png" sizes="16x16">
         <link rel="icon" type="image/png" href="assets/img/favicons/favicon-32x32.png" sizes="32x32">
@@ -30,43 +33,34 @@
         <link rel="apple-touch-icon" sizes="144x144" href="assets/img/favicons/apple-touch-icon-144x144.png">
         <link rel="apple-touch-icon" sizes="152x152" href="assets/img/favicons/apple-touch-icon-152x152.png">
         <link rel="apple-touch-icon" sizes="180x180" href="assets/img/favicons/apple-touch-icon-180x180.png"> -->
-        <!-- END Icons -->
-        
-        <!-- <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400italic,600,700%7COpen+Sans:300,400,400italic,600,700">         -->
-        <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
-        @yield('cssPage')
-        <link rel="stylesheet" id="css-main" href="{{ asset('css/oneui.css') }}">                
-        
-    </head>
-    <body>
-        <div id="page-container" class="sidebar-l sidebar-o side-scroll header-navbar-fixed">
-        @include('layouts.pago_libre.backend.header')  
-        <main id="main-container">            
-            @yield('pageHeader')
-            <div class="content content-narrow">
-                @yield('content')
-            </div>
+    <!-- END Icons -->
 
-        </main>
-        @include('layouts.pago_libre.backend.footer')  
-        </div>        
-        
-        <script src="{{ asset('js/core/jquery.min.js') }}"></script>
-        <script src="{{ asset('js/core/bootstrap.min.js') }}"></script>
-        <script src="{{ asset('js/core/jquery.slimscroll.min.js') }}"></script>
-        <script src="{{ asset('js/core/jquery.scrollLock.min.js') }}"></script>
-        <script src="{{ asset('js/core/jquery.appear.min.js') }}"></script>
-        <script src="{{ asset('js/core/jquery.countTo.min.js') }}"></script>
-        <script src="{{ asset('js/core/jquery.placeholder.min.js') }}"></script>
-        <script src="{{ asset('js/core/js.cookie.min.js') }}"></script>
-        <script src="{{ asset('js/appTheme.js') }}"></script>
+    <!-- <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400italic,600,700%7COpen+Sans:300,400,400italic,600,700">         -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{asset('css/app.css')}}">
+    <link rel="stylesheet" href="{{asset('home/main.css')}}">
+    @yield('cssPage')
 
-        @yield('scriptsPage')                    
-        <!-- <script>
+</head>
+
+<body class="@yield('cssClass')">
+    <div class="container-fluid homeContainer">
+        @include('layouts.home.backend.header')
+        <div class="row">
+            @yield('content')
+        </div>
+        @include('layouts.home.backend.footer')
+    </div>
+
+    @yield('scriptsPage')
+    <!-- <script>
             $(function () {
                 // Init page helpers (Slick Slider plugin)
                 App.initHelpers('slick');
             });
         </script> -->
-    </body>
+    <script src="{{asset('js/app.js')}}"></script>
+</body>
+
 </html>
