@@ -47,7 +47,7 @@
 <body class="@yield('cssClass')">
     <div class="container-fluid homeContainer">
         @include('layouts.home.backend.header')
-        <div class="row">
+        <div class="row ml-0 mr-0">
             @yield('content')
         </div>
         @include('layouts.home.backend.footer')
