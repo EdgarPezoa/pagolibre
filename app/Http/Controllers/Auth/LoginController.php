@@ -33,9 +33,7 @@ class LoginController extends Controller
     }
 
     //NUEVAS FUNCIONES
-    protected function redirectTo(){
-        return route('intranet.index');
-    }
+    protected $redirectTo = '/intranet';
 
     public function username(){
         return 'email';
@@ -60,7 +58,7 @@ class LoginController extends Controller
     protected function authenticated(Request $request, $user){
         // QUE HACE LUEGO DE LOGEARSE (LOG)
         Auth::loginUsingId($user->id_usuario);
-        return redirect('/');        
+        return redirect('/intranet');        
 
     }
 
