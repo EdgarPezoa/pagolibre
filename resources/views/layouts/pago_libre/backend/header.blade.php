@@ -9,11 +9,11 @@
                     <span class="caret"></span>
                 </button>
                 <ul class="dropdown-menu dropdown-menu-right">
-                    <li>
+                    <!-- <li>
                         <a tabindex="-1" href="">
                             <i class="si si-logout pull-right"></i>Configuración
                         </a>
-                    </li>
+                    </li> -->
                     <li>
                         <form class="" action="{{ route('logout') }}" method="post">
                             {{ csrf_field() }}

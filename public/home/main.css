@@ -53,3 +53,8 @@ body{
     width: 200px;
     font-size: 1.1rem;
 }
+
+.home .nav-item{
+    padding-left: 10px;
+    padding-right: 10px;
+}
