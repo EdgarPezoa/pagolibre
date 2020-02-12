@@ -1,4 +1,5 @@
 @extends('layouts.pago_libre.backend.master')
+@section('title', 'Dashboard')
 @section('pageHeader')
  <div class="content bg-image overflow-hidden" style="background-image: url('{{ asset('img/377.jpg') }}'); min-height:250px; position:relative;">
     <div class="header-custom animated zoomIn text-right">
