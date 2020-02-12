@@ -6,8 +6,8 @@
 
         <title>@yield('title') | PagoLibre</title>
 
-        <meta name="description" content="OneUI - Admin Dashboard Template & UI Framework created by pixelcave and published on Themeforest">
-        <meta name="author" content="pixelcave">
+        <meta name="description" content="Edgar Leonardo Pezoa Soto">
+        <meta name="author" content="Edgar Leonardo Pezoa Soto">
         <meta name="robots" content="noindex, nofollow">
         <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1.0">
 
