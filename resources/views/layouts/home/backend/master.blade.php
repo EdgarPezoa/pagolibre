@@ -7,7 +7,7 @@
 <head>
     <meta charset="utf-8">
 
-    <title>@yield('title') | KIO</title>
+    <title>@yield('title') | PagoLibre</title>
 
     <meta name="description" content="Edgar Leonardo Pezoa Soto">
     <meta name="author" content="Edgar Leonardo Pezoa Soto">
