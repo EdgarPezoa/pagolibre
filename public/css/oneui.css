@@ -16935,3 +16935,10 @@ div.tagsinput span.tag a:hover {
 
 .custom-logout { display: block; width: 100%; border: none; padding: 7px 12px; background: transparent; text-align: left;}
 .custom-logout:hover { background-color: #f9f9f9; }
+
+.homeImagebackground { display: flex; justify-content: center; align-items: center; flex-direction: row; }
+.homeImagebackground h1 { text-shadow: 2px 2px 7px #000000; } 
+.homeImagebackground h1 span { display: block; } 
+
+
+
