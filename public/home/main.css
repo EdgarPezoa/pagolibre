@@ -1,5 +1,5 @@
 .navbarLogo {
-    width: 300px;
+    width: 250px;
 }
 
 
@@ -21,4 +21,23 @@
 
 .homeTitle {
     color:#fff;
+}
+
+.footerContainer{
+    height: 70px;
+}
+
+.footerBrand{
+    font-size: 1.3rem;
+    text-transform: uppercase;
+}
+
+.btnRegistro{
+    width: 200px;
+    font-size: 1.1rem;
+}
+
+.btnLogin{
+    width: 200px;
+    font-size: 1.1rem;
 }

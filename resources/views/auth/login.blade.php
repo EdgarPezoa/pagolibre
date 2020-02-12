@@ -16,8 +16,8 @@
                 <h3 class="block-title">{{ __('Login') }}</h3>
             </div>
             <div class="block-content block-content-full block-content-narrow">                
-                <h1 class="h2 font-w600 push-30-t push-5">KIO</h1>
-                <p>Bienvenido, Porfavor inicie sesión.</p>                                            
+                <h1 class="h2 font-w600 push-30-t push-5">PagoLibre</h1>
+                <p>Bienvenido, Por favor inicie sesión.</p>                                            
                 <form class="js-validation-login form-horizontal push-30-t push-50" aria-label="{{ __('Login') }}" action="{{ route('login') }}" method="POST">
                     @csrf
                     <div class="form-group">
@@ -66,7 +66,7 @@
 
 <!-- Login Footer -->
 <div class="push-10-t text-center animated fadeInUp">
-<small class="text-muted font-w600">2020 &copy; KIO 1.0</small>
+<small class="text-muted font-w600">2020 &copy; PagoLibre 1.0</small>
 </div>
 <!-- END Login Footer -->
 @endsection
