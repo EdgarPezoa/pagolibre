@@ -15,7 +15,7 @@
 
 <div class="col-md-12 pl-0 pr-0">
     <div class="homeImagebackground">
-        <h1 class="text-center homeTitle">PLATAFORMA DE PAGOS PARA COMUNIDADES QUE OPERAN COMO <span>CLIENTES LIBRE</span></h1>
+        <h1 class="text-center homeTitle">PLATAFORMA DE PAGOS PARA COMUNIDADES QUE OPERAN COMO <span>CLIENTES LIBRES</span></h1>
     </div>
 </div>
 @endsection

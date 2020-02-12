@@ -1,3 +1,10 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+
+body{
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.1rem;
+}
+
 .navbarLogo {
     width: 250px;
 }
@@ -21,6 +28,11 @@
 
 .homeTitle {
     color:#fff;
+    margin-bottom: 23%;
+}
+.homeTitle > span{
+    font-weight: bold;
+    font-style: italic;
 }
 
 .footerContainer{
@@ -28,7 +40,7 @@
 }
 
 .footerBrand{
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     text-transform: uppercase;
 }
 
