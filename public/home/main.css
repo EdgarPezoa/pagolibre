@@ -9,6 +9,11 @@
     background-size: cover;
 }
 
+
+.homeImagebackground { display: flex; justify-content: center; align-items: center; flex-direction: row; }
+.homeImagebackground h1 { text-shadow: 2px 2px 7px #000000; } 
+.homeImagebackground h1 span { display: block; } 
+
 .homeContainer {
     padding-left: 0;
     padding-right: 0;
