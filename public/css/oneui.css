@@ -16935,3 +16935,9 @@ div.tagsinput span.tag a:hover {
 
 .custom-logout { display: block; width: 100%; border: none; padding: 7px 12px; background: transparent; text-align: left;}
 .custom-logout:hover { background-color: #f9f9f9; }
+
+
+.dashboardUserIcon{
+  padding-left: 5px !important;
+  padding-right: 10px !important;
+}

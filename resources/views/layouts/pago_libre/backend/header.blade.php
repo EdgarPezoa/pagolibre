@@ -3,10 +3,10 @@
     <ul class="nav-header pull-right">
         <li>
             <div class="btn-group">
-                <button class="btn btn-default btn-image dropdown-toggle text-lowercase text-capitalize" data-toggle="dropdown" type="button">
-                    {{$usuarioEmail}}
-                    <img src="" alt="">
-                    <span class="caret"></span>
+                <button class="btn btn-default dropdown-toggle text-lowercase text-capitalize" data-toggle="dropdown" type="button">
+                    <span><i class="fa fa-user"></i></span>
+                    <span class="dashboardUserIcon">{{$usuarioEmail}}</span>
+                    <span><i class="fa fa-sort-down"></i></span>
                 </button>
                 <ul class="dropdown-menu dropdown-menu-right">
                     <!-- <li>
