@@ -16941,3 +16941,34 @@ div.tagsinput span.tag a:hover {
   padding-left: 5px !important;
   padding-right: 10px !important;
 }
+
+.resumenItem{
+  width: 33%;
+}
+
+.resumenLabelTitle{
+  font-weight: bold;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.resumenContainer{
+  display: flex;
+  justify-content: flex-start;
+}
+
+.tituloResumen{
+  padding: 0 !important;
+  margin: 0 !important;
+}
+.subtituloResumen{
+  padding: 0 !important;
+  margin: 0 !important;
+}
+.resumenLabelTitle > span{
+  font-weight: normal;
+}
+
+.valorResumen{
+  
+}
