@@ -64,17 +64,17 @@
 
                     <hr>
 
-                    <div class="resumenContainer">
+                    <div class="resumenContainerForm">
                         <div class="resumenItem">
                             <input type="radio" id="saldo" name="saldo" value="saldo">
                             <label class="resumenLabelTitle" for="saldo">Saldo vigente: <span> $10.000</span></label><br>
                         </div>
                         <div class="resumenItem">
-                            <p class="resumenLabelTitle">Monto último pago</p>
-                            <p>$10.000</p>
+                            <button class="btn btn-danger">INICIAR PAGO</button>
+                            <button class="btn-danger">VER DETALLES -></button>
                         </div>
                     </div>
-                    
+
                 </div>
                 <div class="tab-pane fade fade-up" id="btabs-animated-slideup-historico">
                     <h4 class="font-w300 push-15">Histórico</h4>
