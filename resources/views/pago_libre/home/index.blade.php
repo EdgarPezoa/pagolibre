@@ -71,7 +71,7 @@
                         </div>
                         <div class="resumenItem">
                             <button class="btn btn-danger">INICIAR PAGO</button>
-                            <button class="btn-danger">VER DETALLES -></button>
+                            <button class="btn btn-primary">VER DETALLES -></button>
                         </div>
                     </div>
 
