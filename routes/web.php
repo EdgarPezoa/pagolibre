@@ -22,4 +22,13 @@ Route::middleware(['login'])->group(function () {
     });
 });
 
-
+// FLOW
+Route::middleware(['guest'])->group(function () {
+    Route::namespace('Flow')->group(function () {
+        Route::prefix('flow')->group(function () {
+            Route::name('flow_')->group(function () {
+                Route::get('/', 'FlowController@index')->name('index');
+            });
+        });
+    });
+});
