@@ -128,12 +128,26 @@ class FlowController extends Controller
     }
 
     public function result(Request $request){
-        dd($request);
-        /*
-
-
-
-        */
+        try {
+            if(!isset($_POST["token"])) {
+                throw new Exception("No se recibio el token", 1);
+            }
+            $token = filter_input(INPUT_POST, 'token');
+            $params = array(
+                "token" => $token
+            );
+            $serviceName = Utils::PAYMENT_CREATE_GET_STATUS;
+            $this->sendRequest();
+            $response = $flowApi->send($serviceName, $params, "GET");
+            
+            //Actualiza los datos en su sistema
+            
+            dd($response);
+            
+            
+        } catch (Exception $e) {
+            echo "Error: " . $e->getCode() . " - " . $e->getMessage();
+        }
     }
 
     public function confirm(Request $request){
