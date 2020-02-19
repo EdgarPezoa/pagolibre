@@ -14,7 +14,8 @@ class TransaccionController extends Controller
      */
     public function index()
     {
-        //
+        
+        
     }
 
     /**

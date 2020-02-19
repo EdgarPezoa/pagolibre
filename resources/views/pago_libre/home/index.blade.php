@@ -70,7 +70,7 @@
                             <label class="resumenLabelTitle" for="saldo">Saldo vigente: <span> $10.000</span></label><br>
                         </div>
                         <div class="resumenItem">
-                            <button class="btn btn-danger">INICIAR PAGO</button>
+                            <a href="{{ route('pagolibre_transaccion.index') }}" class="btn btn-danger">INICIAR PAGO</a>
                             <button class="btn btn-primary">VER DETALLES -></button>
                         </div>
                     </div>
