@@ -142,12 +142,12 @@ class FlowController extends Controller
             $response = $this->sendRequest($service, $params, 'GET');
             
             //Actualiza los datos en su sistema
-            
-            dd($response);
+        
             
         } catch (Exception $e) {
             echo "Error: " . $e->getCode() . " - " . $e->getMessage();
         }
+        return dd($response);
     }
 
     public function confirm(){
@@ -164,8 +164,6 @@ class FlowController extends Controller
             $response = $this->sendRequest($service, $params, 'POST');
             
             //Actualiza los datos en su sistema
-            
-            dd($response);
             
             
         } catch (Exception $e) {
