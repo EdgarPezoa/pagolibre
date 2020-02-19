@@ -92,8 +92,8 @@ class FlowController extends Controller
 
     public function generarPago($params){
         $optional = array(
-            "rut" => "9999999-9",
-            "nombre" => "cliente 1"
+            "rut" => "172440509",
+            "nombre" => "Rodolfo Aranguiz"
         );
         $optional = json_encode($optional);
 
@@ -108,7 +108,7 @@ class FlowController extends Controller
             "urlConfirmation" => "url callback del comercio donde Flow confirmará el pago",
             "urlReturn" => "url de retorno del comercio donde Flow redirigirá al pagador",
             "optional" => $optional,
-          ); 
+        ); 
     }
 }
 
