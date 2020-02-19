@@ -46,7 +46,7 @@ class FlowController extends Controller
         }
 
         $data = json_decode($response["response"], true);
-        dd($data);
+        return $data;
 
     }
 
