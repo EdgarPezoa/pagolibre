@@ -136,6 +136,10 @@ class FlowController extends Controller
         */
     }
 
+    public function confirm(Request $request){
+        dd($request);
+    }
+
     public function prueba(){
         $optional = array(
             "rut" => "17244050-9",
@@ -145,7 +149,7 @@ class FlowController extends Controller
 
         $params = array( 
             "apiKey" => $this->apiKey,
-            "commerceOrder" => "2",
+            "commerceOrder" => rand(0,100000000000000000),
             "subject" => "Descripción de la orden",
             "currency" => "CLP",
             "amount"=> 1000,
