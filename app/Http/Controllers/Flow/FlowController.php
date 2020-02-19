@@ -149,8 +149,10 @@ class FlowController extends Controller
 
         $service = Utils::PAYMENT_CREATE;
 
-        $this->sendRequest($service, $params, 'POST');
-
+        $request = $this->sendRequest($service, $params, 'POST');
+        // GENERAR DB
+        $redirect = $response["url"] . "?token=" . $response["token"];
+	    return redirect($redirect);
     }
 }
 
