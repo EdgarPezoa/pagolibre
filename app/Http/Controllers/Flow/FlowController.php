@@ -13,15 +13,12 @@ class FlowController extends Controller
     protected $secretKey;
     protected $apiUrl;
     protected $baseUrl;
-    protected $utils;
 	
 	public function __construct() {
 		$this->apiKey = env('FLOW_APIKEY', null);
         $this->secretKey = env('FLOW_SECRETKEY', null);
         $this->apiUrl = env('FLOW_APIURL', 'https://sandbox.flow.cl/api');
         $this->baseUrl = env('FLOW_BASEURL', 'https://pagolibre.devmockup.cl/apiFlow');
-        $this->utils = new Utils();
-        dd(Utils::PAYMENT_CREATE);
         if($this->apiKey == null || $this->secretKey == null){
             return redirect()->route('home_index');
         }
@@ -127,7 +124,7 @@ class FlowController extends Controller
             "urlReturn" => "url de retorno del comercio donde Flow redirigirá al pagador",
             "optional" => $optional,
           ); 
-          $service = $this->utils->PAYMENT_CREATE;
+          $service = Utils::PAYMENT_CREATE;
 
     }
 
@@ -151,7 +148,7 @@ class FlowController extends Controller
             "optional" => $optional,
           ); 
 
-        $service = $this->utils->PAYMENT_CREATE;
+        $service = Utils::PAYMENT_CREATE;
 
         $this->sendRequest($service, $params, 'POST');
 
