@@ -15,10 +15,12 @@ class UsuarioSeeder extends Seeder
         UsuarioModel::create([
             'email' => 'edgar@scek.cl',
             'password' => bcrypt('Eddy'),
+            'device' => 4
         ]);
         UsuarioModel::create([
             'email' => 'rodolfo@karkon.cl',
             'password' => bcrypt('Rodolfox'),
+            'device' => 4
         ]);
     }
 }
