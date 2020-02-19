@@ -10,8 +10,7 @@ use App\InvoiceModel;
 class HomeController extends Controller
 {
     public function index(){
-        $usuarioEmail = Auth::user()->email;
-        $invoices = 
+        $usuarioEmail = Auth::user()->email;        
         return view('pago_libre.home.index', compact('usuarioEmail'));
     }
 }
