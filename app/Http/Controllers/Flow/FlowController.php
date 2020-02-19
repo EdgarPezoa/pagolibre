@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Flow;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\Flow\Utils;
 
 class FlowController extends Controller
 {
@@ -11,22 +12,53 @@ class FlowController extends Controller
     protected $apiKey;
     protected $secretKey;
     protected $apiUrl;
-	protected $baseUrl;
+    protected $baseUrl;
+    protected $utils;
 	
 	public function __construct() {
-		$this->apiKey = env('FLOW_APIKEY', 'Default apiKey');
-        $this->secretKey = env('FLOW_SECRETKEY', 'Default secretKey');
-        $this->apiUrl = env('FLOW_APIURL', 'https://www.flow.cl/api');
-        $this->baseUrl = env('FLOW_BASEURL', 'Default baseUrl');
+		$this->apiKey = env('FLOW_APIKEY', null);
+        $this->secretKey = env('FLOW_SECRETKEY', null);
+        $this->apiUrl = env('FLOW_APIURL', 'https://sandbox.flow.cl/api');
+        $this->baseUrl = env('FLOW_BASEURL', 'https://pagolibre.devmockup.cl/apiFlow');
+        $this->utils = new Utils();
+
+        if($this->apiKey == null || $this->secretKey == null){
+            return redirect()->route('home_index');
+        }
+        
     }
 
-    public function firma($parametros){
+    public function sendRequest($service, $params, $method){
+        $response = null;
+        $firma = null;
+        $url = null;
+
+        $url = $this->apiUrl."/".$servicio;
+        $params['apiKey'] = $this->apiKey;
+        $firma = $this->firma($params);
+        $params['s'] = $firma;
+        if($method == "POST"){
+            $response = $this->httpSendPostRequest($url, $params);
+        }else if($method == "GET"){
+            $response = $this->httpSendGetRequest($url, $params);
+        }
+        
+        if(!in_array($response["info"]['http_code'], array('200', '400', '401'))) {
+            throw new Exception('Unexpected error occurred. HTTP_CODE: '.$info['http_code'] , $info['http_code']);
+        }
+
+        $data = json_decode($response["response"], true);
+        dd($response);
+
+    }
+
+    public function firma($params){
         $firmaKey = "";
-        $keys = array_keys($parametros);
+        $keys = array_keys($params);
         sort($keys);
 
         foreach($keys as $key) {
-            $firmaKey .= $key . $parametros[$key];
+            $firmaKey .= $key . $params[$key];
         };
 
         $firma = hash_hmac('sha256', $firmaKey , $this->secretKey);
@@ -34,14 +66,38 @@ class FlowController extends Controller
         return $firma;
     }
 
-    public function generarPago(){
+    public function httpSendPostRequest($url, $params){
+
+    }
+
+    public function httpSendGetRequest($url, $params){
+        $info = null;
+        $url = $url . "?" . http_build_query($params);
+        try {
+            $cURL = curl_init();
+            curl_setopt($cURL, CURLOPT_URL, $url);
+            curl_setopt($cURL, CURLOPT_RETURNTRANSFER, TRUE);
+            $response = curl_exec($cURL);
+            if($response === false) {
+                $error = curl_error($cURL);
+                throw new Exception($error, 1);
+            }
+            $info = curl_getinfo($cURL);
+
+        } catch (Exception $e) {
+            echo 'Error: ' . $e->getCode() . ' - ' . $e->getMessage();
+        }
+        return array("response" => $response, "info" => $info);
+    }
+
+    public function generarPago($params){
         $optional = array(
             "rut" => "9999999-9",
             "nombre" => "cliente 1"
         );
         $optional = json_encode($optional);
 
-        $parametros = array( 
+        $params = array( 
             "apiKey" => $this->apiKey,
             "commerceOrder" => "Orden del comercio",
             "subject" => "Descripción de la orden",
@@ -52,7 +108,6 @@ class FlowController extends Controller
             "urlConfirmation" => "url callback del comercio donde Flow confirmará el pago",
             "urlReturn" => "url de retorno del comercio donde Flow redirigirá al pagador",
             "optional" => $optional,
-            "s" => "la firma de los parámetros efectuada con su secretKey"
           ); 
     }
 }
