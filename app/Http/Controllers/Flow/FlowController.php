@@ -60,7 +60,6 @@ class FlowController extends Controller
         };
 
         $firma = hash_hmac('sha256', $firmaKey , $this->secretKey);
-        dd($firma);
         return $firma;
     }
 
