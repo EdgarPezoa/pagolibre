@@ -127,7 +127,7 @@ class FlowController extends Controller
 
     }
 
-    public function result(Request $request){
+    public function result(){
         try {
             if(!isset($_POST["token"])) {
                 throw new Exception("No se recibio el token", 1);
@@ -150,7 +150,7 @@ class FlowController extends Controller
         }
     }
 
-    public function confirm(Request $request){
+    public function confirm(){
         try {
             if(!isset($_POST["token"])) {
                 throw new Exception("No se recibio el token", 1);
