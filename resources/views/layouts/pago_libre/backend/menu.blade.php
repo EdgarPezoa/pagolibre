@@ -14,7 +14,7 @@
                 <ul class="nav-main">
                     <li>
                         <a class="text-black {{ Request::is('intranet') ? 'active' : '' }}" href="{{ route('pagolibre_index') }}"><i class="si si-speedometer"></i><span class="sidebar-mini-hide">Escritorio</span></a>
-                        <a class="text-black {{ Request::is('intranet/historicos') ? 'active' : '' }}" href="{{ route('pagolibre_historicos') }}"><i class="si si-speedometer"></i><span class="sidebar-mini-hide">Historico</span></a>
+                        <a class="text-black {{ Request::is('intranet/historicos') ? 'active' : '' }}" href="{{ route('pagolibre_historicos') }}"><i class="fa fa-calendar"></i><span class="sidebar-mini-hide">Historico</span></a>
                     </li>                                                                                                                                                   
                 </ul>
             </div>            
