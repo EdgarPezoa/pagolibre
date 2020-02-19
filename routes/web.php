@@ -28,7 +28,7 @@ Route::middleware(['guest'])->group(function () {
         Route::prefix('apiFlow')->group(function () {
             Route::name('apiFlow_')->group(function () {
 
-                Route::match(['get', 'post'], '/summary', 'FlowController@summary')->name('summary');
+                Route::match(['get', 'post'], '/confirm', 'FlowController@confirm')->name('confirm');
                 Route::match(['get', 'post'], '/result', 'FlowController@result')->name('result');
 
                 Route::get('/prueba', 'FlowController@prueba')->name('prueba');
