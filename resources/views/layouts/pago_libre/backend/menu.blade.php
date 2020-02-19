@@ -14,6 +14,7 @@
                 <ul class="nav-main">
                     <li>
                         <a class="active text-black" href="{{ url('/') }}"><i class="si si-speedometer"></i><span class="sidebar-mini-hide">Escritorio</span></a>
+                        <a class="active text-black" href="{{ url('/historico') }}"><i class="si si-speedometer"></i><span class="sidebar-mini-hide">Historico</span></a>
                     </li>                                                                                                                                                   
                 </ul>
             </div>            

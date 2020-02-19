@@ -1,4 +1,4 @@
-@extends('layouts.pago_libre.frontend.master')
+@extends('layouts.pago_libre.backend.master')
 @section('content')
 <div class="row">
     <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4">        
