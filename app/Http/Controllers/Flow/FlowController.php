@@ -145,7 +145,7 @@ class FlowController extends Controller
 
         $params = array( 
             "apiKey" => $this->apiKey,
-            "commerceOrder" => "1",
+            "commerceOrder" => "2",
             "subject" => "Descripción de la orden",
             "currency" => "CLP",
             "amount"=> 1000,
@@ -159,7 +159,6 @@ class FlowController extends Controller
         $service = Utils::PAYMENT_CREATE;
 
         $request = $this->sendRequest($service, $params, 'POST');
-        dd($request);
         $redirect = $request["url"] . "?token=" . $request["token"];
         // GENERAR DB
 	    return redirect($redirect);
