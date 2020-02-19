@@ -19,9 +19,11 @@ Route::middleware(['login'])->group(function () {
                 Route::get('/', 'HomeController@index')->name('index');
                 Route::get('/historicos', 'HomeController@historicos')->name('historicos');
 
+                Route::resource('/transaccion', 'TransaccionController');
                 
             });
         });
+
     });
 });
 
