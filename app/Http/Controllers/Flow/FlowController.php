@@ -33,10 +33,11 @@ class FlowController extends Controller
         $firma = null;
         $url = null;
 
-        $url = $this->apiUrl."/".$servicio;
+        $url = $this->apiUrl."/".$service;
         $params['apiKey'] = $this->apiKey;
         $firma = $this->firma($params);
         $params['s'] = $firma;
+
         if($method == "POST"){
             $response = $this->httpSendPostRequest($url, $params);
         }else if($method == "GET"){
@@ -67,9 +68,24 @@ class FlowController extends Controller
     }
 
     public function httpSendPostRequest($url, $params){
-
+        try {
+            $cURL = curl_init();
+            curl_setopt($cURL, CURLOPT_URL, $url);
+            curl_setopt($cURL, CURLOPT_RETURNTRANSFER, TRUE);
+            curl_setopt($cURL, CURLOPT_POST, TRUE);
+            curl_setopt($cURL, CURLOPT_POSTFIELDS, $params);
+            $response = curl_exec($cURL);
+            if($response === false) {
+                $error = curl_error($cURL);
+                throw new Exception($error, 1);
+            } 
+            $info = curl_getinfo($cURL);
+        }catch (Exception $e) {
+            echo 'Error: ' . $e->getCode() . ' - ' . $e->getMessage();
+        }
+        
     }
-
+    // CONSULTAR DATOS se´gun un servicio
     public function httpSendGetRequest($url, $params){
         $info = null;
         $url = $url . "?" . http_build_query($params);
@@ -92,8 +108,8 @@ class FlowController extends Controller
 
     public function generarPago($params){
         $optional = array(
-            "rut" => "172440509",
-            "nombre" => "Rodolfo Aranguiz"
+            "rut" => "9999999-9",
+            "nombre" => "cliente 1"
         );
         $optional = json_encode($optional);
 
@@ -108,7 +124,8 @@ class FlowController extends Controller
             "urlConfirmation" => "url callback del comercio donde Flow confirmará el pago",
             "urlReturn" => "url de retorno del comercio donde Flow redirigirá al pagador",
             "optional" => $optional,
-        ); 
+          ); 
+          $service = $this->utils->PAYMENT_CREATE;
     }
 }
 
