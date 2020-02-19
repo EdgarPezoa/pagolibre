@@ -127,6 +127,15 @@ class FlowController extends Controller
 
     }
 
+    public function result(Request $request){
+        dd($request);
+        /*
+
+
+
+        */
+    }
+
     public function prueba(){
         $optional = array(
             "rut" => "17244050-9",
@@ -150,8 +159,9 @@ class FlowController extends Controller
         $service = Utils::PAYMENT_CREATE;
 
         $request = $this->sendRequest($service, $params, 'POST');
-        // GENERAR DB
+        dd($request);
         $redirect = $request["url"] . "?token=" . $request["token"];
+        // GENERAR DB
 	    return redirect($redirect);
     }
 }
