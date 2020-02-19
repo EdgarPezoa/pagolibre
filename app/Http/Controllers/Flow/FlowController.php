@@ -140,7 +140,7 @@ class FlowController extends Controller
             "subject" => "Descripción de la orden",
             "currency" => "CLP",
             "amount"=> 1000,
-            "email" => "edgar@scek.cl",
+            "email" => "rodolfo@gmail.com",
             "paymentMethod" => 9,
             "urlConfirmation" =>$this->baseUrl.'/confirm',
             "urlReturn" => $this->baseUrl.'/result',
