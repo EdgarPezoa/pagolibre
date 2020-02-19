@@ -151,7 +151,7 @@ class FlowController extends Controller
 
         $request = $this->sendRequest($service, $params, 'POST');
         // GENERAR DB
-        $redirect = $response["url"] . "?token=" . $response["token"];
+        $redirect = $request["url"] . "?token=" . $request["token"];
 	    return redirect($redirect);
     }
 }
