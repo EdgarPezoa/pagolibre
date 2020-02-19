@@ -128,9 +128,9 @@ class FlowController extends Controller
 
     }
 
-    public function result(){
+    public function result(Request $request){
         try {
-            if(!isset($_POST["token"])) {
+            if(!isset($request->token)) {
                 throw new Exception("No se recibio el token", 1);
             }
             $token = filter_input(INPUT_POST, 'token');
@@ -150,9 +150,9 @@ class FlowController extends Controller
         return dd($response);
     }
 
-    public function confirm(){
+    public function confirm(Request $request){
         try {
-            if(!isset($_POST["token"])) {
+            if(!isset($request->token)) {
                 throw new Exception("No se recibio el token", 1);
             }
             $token = filter_input(INPUT_POST, 'token');
@@ -161,7 +161,7 @@ class FlowController extends Controller
             );
 
             $service = Utils::PAYMENT_CREATE_GET_STATUS;
-            $response = $this->sendRequest($service, $params, 'POST');
+            $response = $this->sendRequest($service, $params, 'GET');
             
             //Actualiza los datos en su sistema
             
