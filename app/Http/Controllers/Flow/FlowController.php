@@ -21,7 +21,7 @@ class FlowController extends Controller
         $this->apiUrl = env('FLOW_APIURL', 'https://sandbox.flow.cl/api');
         $this->baseUrl = env('FLOW_BASEURL', 'https://pagolibre.devmockup.cl/apiFlow');
         $this->utils = new Utils();
-        dd($this->utils);
+        dd(Utils::PAYMENT_CREATE);
         if($this->apiKey == null || $this->secretKey == null){
             return redirect()->route('home_index');
         }
