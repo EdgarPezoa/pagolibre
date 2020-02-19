@@ -49,7 +49,7 @@ class FlowController extends Controller
         }
 
         $data = json_decode($response["response"], true);
-        dd($response);
+        dd($data);
 
     }
 
@@ -83,8 +83,10 @@ class FlowController extends Controller
         }catch (Exception $e) {
             echo 'Error: ' . $e->getCode() . ' - ' . $e->getMessage();
         }
-        
+
+        return array("response" => $response, "info" => $info);
     }
+
     // CONSULTAR DATOS se´gun un servicio
     public function httpSendGetRequest($url, $params){
         $info = null;
