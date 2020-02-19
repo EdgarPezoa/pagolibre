@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\Flow\Utils;
 use Exception;
+use App\InvoiceModel;
 
 class FlowController extends Controller
 {
@@ -198,5 +199,6 @@ class FlowController extends Controller
         // GENERAR DB
 	    return redirect($redirect);
     }
+    
 }
 
