@@ -137,14 +137,13 @@ class FlowController extends Controller
             $params = array(
                 "token" => $token
             );
-            $serviceName = Utils::PAYMENT_CREATE_GET_STATUS;
-            $this->sendRequest();
-            $response = $flowApi->send($serviceName, $params, "GET");
+
+            $service = Utils::PAYMENT_CREATE_GET_STATUS;
+            $response = $this->sendRequest($service, $params, 'GET');
             
             //Actualiza los datos en su sistema
             
             dd($response);
-            
             
         } catch (Exception $e) {
             echo "Error: " . $e->getCode() . " - " . $e->getMessage();
@@ -160,9 +159,9 @@ class FlowController extends Controller
             $params = array(
                 "token" => $token
             );
-            $serviceName = Utils::PAYMENT_CREATE_GET_STATUS;
-            $this->sendRequest();
-            $response = $flowApi->send($serviceName, $params, "GET");
+
+            $service = Utils::PAYMENT_CREATE_GET_STATUS;
+            $response = $this->sendRequest($service, $params, 'POST');
             
             //Actualiza los datos en su sistema
             
