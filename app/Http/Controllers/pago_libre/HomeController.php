@@ -12,4 +12,9 @@ class HomeController extends Controller
         $usuarioEmail = Auth::user()->email;
         return view('pago_libre.home.index', compact('usuarioEmail'));
     }
+
+    public function historicos(){
+        $usuarioEmail = Auth::user()->email;
+        return view('pago_libre.home.historicos', compact('usuarioEmail'));
+    }
 }

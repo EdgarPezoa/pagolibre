@@ -11,7 +11,7 @@
 @endsection
 
 @section('content')
-<h2 class="content-heading">Paga tus cuentas rapido y Seguro !</h2>
+<h2 class="content-heading">HISTORICOS</h2>
 <div class="row">
     <div class="col-md-12">
         <div class="block">

@@ -5,7 +5,7 @@
                 <button class="btn btn-link text-gray pull-right hidden-md hidden-lg" type="button" data-toggle="layout" data-action="sidebar_close">
                     <i class="fa fa-times"></i>
                 </button>                            
-                <a class="h5" href="{{ url('/') }}">
+                <a class="h5" href="{{ route('pagolibre_index') }}">
                     <img class="logo"src="{{ asset('img/logo.jpeg') }}" alt="">
                     <!-- <i class="fa fa-circle-k-notch text-primary"></i> <span class="h4 font-w600 sidebar-mini-hide">KIO</span> -->
                 </a>
@@ -13,8 +13,8 @@
             <div class="side-content">
                 <ul class="nav-main">
                     <li>
-                        <a class="active text-black" href="{{ url('/') }}"><i class="si si-speedometer"></i><span class="sidebar-mini-hide">Escritorio</span></a>
-                        <a class="active text-black" href="{{ url('/historico') }}"><i class="si si-speedometer"></i><span class="sidebar-mini-hide">Historico</span></a>
+                        <a class="text-black {{ Request::is('/') ? 'active' : '' }}" href="{{ route('pagolibre_index') }}"><i class="si si-speedometer"></i><span class="sidebar-mini-hide">Escritorio</span></a>
+                        <a class="text-black {{ Request::is('/historicos') ? 'active' : '' }}" href="{{ route('pagolibre_historicos') }}"><i class="si si-speedometer"></i><span class="sidebar-mini-hide">Historico</span></a>
                     </li>                                                                                                                                                   
                 </ul>
             </div>            

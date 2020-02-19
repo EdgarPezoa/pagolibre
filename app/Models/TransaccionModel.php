@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class PagoModel extends Model
+class TransaccionModel extends Model
 {
     protected $connection = 'pagolibre_sqlsrv';
     protected $table = 'transacciones';
