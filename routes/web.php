@@ -17,6 +17,9 @@ Route::middleware(['login'])->group(function () {
         Route::prefix('intranet')->group(function () {
             Route::name('pagolibre_')->group(function () {
                 Route::get('/', 'HomeController@index')->name('index');
+                Route::get('/historicos', 'HomeController@historicos')->name('historicos');
+
+                Route::get('/', 'PagoController@')->name('');
             });
         });
     });
