@@ -16,6 +16,7 @@ class CreateTransaccionesTable extends Migration
         Schema::create('transacciones', function (Blueprint $table) {
             $table->increments('cod_transaccion');
             $table->integer('cod_usuario');
+            $table->integer('invoice_id');
             $table->integer('cod_estado');
             $table->integer('flowOrder');
 

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\Flow\FlowController;
 use Illuminate\Support\Facades\Auth;
+use App\Models\InvoiceModel;
 
 class TransaccionController extends Controller
 {
@@ -39,22 +40,43 @@ class TransaccionController extends Controller
     public function store(Request $request)
     {
         $flow = new FlowController();
-        $user = Auth::user();
+        $usuario = Auth::user();
+        $invoice = InvoiceModel::getInvoiceWhere($request->id)[0];
+
         $optional = array(
             "rut" => "17244050-9",
             "nombre" => "Rodolfo"
         );
         $optional = json_encode($optional);
+
+        $transaccion = TransaccionModel::create([
+            'cod_usuario' => $usuario->id_usuario,
+            'invoice_id' => $invoice->fld_Id,
+            'flowOrder' => null,
+            'cod_estado' => null,
+            'subject' => $invoice->fld_DeviceDescription,
+            'amount' => $invoice->fld_InvoiceAmount,
+            'paymentMedia' => null,
+            'payerEmail' => null,
+            'paymenteFee' => null,
+            'paymenteTaxes' => null,
+            'paymenteBalance' => null,
+            'requestDate' => null,
+            'paymentDate' => null,
+            'paymenteTransferDate' => null,
+        ]);
+
         $params = array( 
-            "commerceOrder" => rand(0,100000000000000000),
-            "subject" => "Descripción de la orden",
+            "commerceOrder" => $transaccion->cod_transaccion,
+            "subject" => $invoice->fld_DeviceDescription,
             "currency" => "CLP",
-            "amount"=> 1000,
-            "email" => $user->email,
+            "amount"=> $invoice->fld_InvoiceAmount,
+            "email" => $usuario->email,
             "paymentMethod" => 9,
             "optional" => $optional,
           );
 
+          
         $flow->prueba($params);
     }
 
