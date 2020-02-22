@@ -11,7 +11,4 @@ class TransaccionModel extends Model
     protected $primaryKey = 'cod_transaccion';
     public $timestamps = true;
 
-    protected $fillable = [
-        'nombre',
-    ];
 }

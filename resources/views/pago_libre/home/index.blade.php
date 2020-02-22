@@ -28,15 +28,14 @@
                     <h4 class="font-w300 push-15 tituloResumen">Resumen</h4>
                     <p class="text-muted subtituloResumen">Información de la cuenta</p>
                     <hr>
-
                     <div class="resumenContainer">
                         <div class="resumenItem">
-                            <p class="resumenLabelTitle">N° de Cliente</p>
-                            <p class="valorResumen">124578451</p>
+                            <p class="resumenLabelTitle">N° de Cliente (fld_ID)</p>
+                            <p class="valorResumen">{{$invoice[0]->fld_Id}}</p>
                         </div>
                         <div class="resumenItem">
-                            <p class="resumenLabelTitle">Fecha de vencimiento</p>
-                            <p class="valorResumen">13/02/2020</p>
+                            <p class="resumenLabelTitle">Fecha de vencimiento (fld_InvoiceEndDateTime)</p>
+                            <p class="valorResumen">{{$invoice[0]->fld_InvoiceEndDateTime}}</p>
                         </div>
                         <div class="resumenItem">
                             <p class="resumenLabelTitle">Dirección</p>
@@ -68,7 +67,7 @@
                         </div>
                         <div class="resumenItem">
                             {{ Form::open(['route' => 'pagolibre_transaccion.store', 'method' => 'post']) }}
-                                {{Form::hidden('id', $id)}}
+                                {{Form::hidden('id', $invoice[0]->fld_Id)}}
                                 {{Form::submit('INICIAR PAGO',['class'=>'btn btn-danger'])}}
                                 <button class="btn btn-primary">VER DETALLES ></button>
                             {{ Form::close() }}

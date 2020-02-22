@@ -5,7 +5,7 @@ namespace App\Http\Controllers\pago_libre;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\Flow\FlowController;
-use Auth;
+use Illuminate\Support\Facades\Auth;
 
 class TransaccionController extends Controller
 {
@@ -55,7 +55,6 @@ class TransaccionController extends Controller
             "optional" => $optional,
           );
 
-        // INICIALIZAR REGISTRO BASE DE DATOS
         $flow->prueba($params);
     }
 

@@ -5,8 +5,9 @@ namespace App\Http\Controllers\Flow;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\Flow\Utils;
+use App\Models\InvoiceModel;
+use App\Models\TransaccionModel;
 use Exception;
-use App\InvoiceModel;
 
 class FlowController extends Controller
 {
@@ -165,8 +166,21 @@ class FlowController extends Controller
             $response = $this->sendRequest($service, $params, 'GET');
             
             //Actualiza los datos en su sistema
-            
-            
+            TransaccionModel::create([
+                'cod_usuario' => '',
+                'cod_estado' => '',
+                'flowOrder' => '',
+                'subject' => '',
+                'amount' => '',
+                'paymentMedia' => '',
+                'payerEmail' => '',
+                'paymenteFee' => '',
+                'paymenteTaxes' => '',
+                'paymenteBalance' => '',
+                'requestDate' => '',
+                'paymentDate' => '',
+                'paymenteTransferDate' => '',
+            ]);
         } catch (Exception $e) {
             echo "Error: " . $e->getCode() . " - " . $e->getMessage();
         }
@@ -182,6 +196,7 @@ class FlowController extends Controller
         $request = $this->sendRequest($service, $params, 'POST');
         $redirect = $request["url"] . "?token=" . $request["token"];
         // GENERAR DB
+
 	    return redirect($redirect);
     }
     
