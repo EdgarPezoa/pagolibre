@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Controllers\Flow\FlowController;
 use Illuminate\Support\Facades\Auth;
 use App\Models\InvoiceModel;
+use App\Models\TransaccionModel;
 
 class TransaccionController extends Controller
 {

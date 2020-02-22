@@ -144,7 +144,18 @@ class FlowController extends Controller
             $response = $this->sendRequest($service, $params, 'GET');
             
             //Actualiza los datos en su sistema
-        
+            $transaccion = TransaccionModel::where('commerceOrder', $response['commerceOrder'])->first();
+            $transaccion->flowOrder = $response['flowOrder'];
+            $transaccion->cod_estado = $response['status'];
+            $transaccion->paymentMedia = $response['paymentData']['media'];
+            $transaccion->payerEmail = $response['payer'];
+            $transaccion->paymenteFee = $response['paymentData']['fee'];
+            $transaccion->paymenteTaxes = $response['paymentData']['taxes'];
+            $transaccion->paymenteBalance = $response['paymentData']['balance'];
+            $transaccion->requestDate = $response['requestDate'];
+            $transaccion->paymentDate = $response['paymentData']['date'];
+            $transaccion->transferDate = $response['paymentData']['transferDate'];
+            $transaccion->save();
             
         } catch (Exception $e) {
             echo "Error: " . $e->getCode() . " - " . $e->getMessage();
@@ -178,7 +189,7 @@ class FlowController extends Controller
             $transaccion->paymentDate = $response['paymentData']['date'];
             $transaccion->transferDate = $response['paymentData']['transferDate'];
             $transaccion->save();
-            
+
         } catch (Exception $e) {
             echo "Error: " . $e->getCode() . " - " . $e->getMessage();
         }
@@ -193,7 +204,6 @@ class FlowController extends Controller
 
         $request = $this->sendRequest($service, $params, 'POST');
         $redirect = $request["url"] . "?token=" . $request["token"];
-        // GENERAR DB
 
 	    return redirect($redirect);
     }

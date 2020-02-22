@@ -17,19 +17,19 @@ class CreateTransaccionesTable extends Migration
             $table->increments('cod_transaccion');
             $table->integer('cod_usuario');
             $table->integer('invoice_id');
-            $table->integer('cod_estado');
-            $table->integer('flowOrder');
+            $table->integer('cod_estado')->nullable();
+            $table->integer('flowOrder')->nullable();
 
             $table->string('subject');
             $table->bigInteger('amount');
-            $table->string('paymentMedia');
-            $table->string('payerEmail');
-            $table->integer('paymenteFee');
-            $table->integer('paymenteTaxes');
-            $table->integer('paymenteBalance');
-            $table->timestamp('requestDate');
-            $table->timestamp('paymentDate');
-            $table->timestamp('paymenteTransferDate');
+            $table->string('paymentMedia')->nullable();
+            $table->string('payerEmail')->nullable();
+            $table->integer('paymenteFee')->nullable();
+            $table->integer('paymenteTaxes')->nullable();
+            $table->integer('paymenteBalance')->nullable();
+            $table->timestamp('requestDate')->nullable();
+            $table->timestamp('paymentDate')->nullable();
+            $table->timestamp('paymenteTransferDate')->nullable();
 
             $table->timestamps();
         });
