@@ -13,5 +13,15 @@ class TransaccionModel extends Model
 
     protected $fillable = [
         'cod_usuario',
+        'invoice_id',
+        'subject',
+        'amount',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
     ];
 }
