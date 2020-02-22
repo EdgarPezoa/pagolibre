@@ -10,7 +10,8 @@
         <meta name="author" content="Edgar Leonardo Pezoa Soto">
         <meta name="robots" content="noindex, nofollow">
         <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1.0">
-
+        <meta name="csrf-token" content="{{ csrf_token() }}">
+        
         <!-- Icons -->
         <!-- The following icons can be replaced with your own, they are used by desktop and mobile browsers -->
         <!-- <link rel="shortcut icon" href="assets/img/favicons/favicon.png">

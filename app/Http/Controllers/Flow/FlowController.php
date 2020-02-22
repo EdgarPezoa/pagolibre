@@ -172,25 +172,10 @@ class FlowController extends Controller
         }
     }
 
-    public function prueba(){
-        $optional = array(
-            "rut" => "17244050-9",
-            "nombre" => "Rodolfo"
-        );
-        $optional = json_encode($optional);
-
-        $params = array( 
-            "apiKey" => $this->apiKey,
-            "commerceOrder" => rand(0,100000000000000000),
-            "subject" => "Descripción de la orden",
-            "currency" => "CLP",
-            "amount"=> 1000,
-            "email" => "rodolfo@gmail.com",
-            "paymentMethod" => 9,
-            "urlConfirmation" =>$this->baseUrl.'/confirm',
-            "urlReturn" => $this->baseUrl.'/result',
-            "optional" => $optional,
-          ); 
+    public function prueba($params){
+        $params['apiKey'] = $this->apiKey;
+        $params['urlConfirmation'] = $this->baseUrl.'/confirm';
+        $params['urlReturn'] = $this->baseUrl.'/result';
 
         $service = Utils::PAYMENT_CREATE;
 

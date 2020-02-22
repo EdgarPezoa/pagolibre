@@ -4,6 +4,8 @@ namespace App\Http\Controllers\pago_libre;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\Flow\FlowController;
+use Auth;
 
 class TransaccionController extends Controller
 {
@@ -36,7 +38,25 @@ class TransaccionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $flow = new FlowController();
+        $user = Auth::user();
+        $optional = array(
+            "rut" => "17244050-9",
+            "nombre" => "Rodolfo"
+        );
+        $optional = json_encode($optional);
+        $params = array( 
+            "commerceOrder" => rand(0,100000000000000000),
+            "subject" => "Descripción de la orden",
+            "currency" => "CLP",
+            "amount"=> 1000,
+            "email" => $user->email,
+            "paymentMethod" => 9,
+            "optional" => $optional,
+          );
+
+        // INICIALIZAR REGISTRO BASE DE DATOS
+        $flow->prueba($params);
     }
 
     /**
