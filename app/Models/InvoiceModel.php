@@ -16,10 +16,10 @@ class InvoiceModel extends Model
         '',
     ];
 
-    public static function getInvoice(){
+    public static function getInvoiceHistorico(){
         return DB::connection('KlmIOT_sqlsrv')->select("select i.fld_Id, i.fld_DeviceDescription, i.fld_InvoiceStartDateTime, i.fld_InvoiceEndDateTime, i.fld_InvoiceStartIndex, i.fld_InvoiceEndIndex, i.fld_InvoiceConsumption, i.fld_InvoiceAmount from tbl_EM_Invoice i inner join tbl_EM_InvoiceDetail d on i.fld_Id=d.fld_InvoiceId inner join tbl_EM_Device de on d.fld_DeviceId=de.fld_Id where de.fld_Id=4 and i.fld_InvoiceConfirmed = 1;");
     }
-    public static function getInvoiceWhere($id){
+    public static function getInvoiceWhereHistorico($id){
         return DB::connection('KlmIOT_sqlsrv')->select("select i.fld_Id, i.fld_DeviceDescription, i.fld_InvoiceStartDateTime, i.fld_InvoiceEndDateTime, i.fld_InvoiceStartIndex, i.fld_InvoiceEndIndex, i.fld_InvoiceConsumption, i.fld_InvoiceAmount from tbl_EM_Invoice i inner join tbl_EM_InvoiceDetail d on i.fld_Id=d.fld_InvoiceId inner join tbl_EM_Device de on d.fld_DeviceId=de.fld_Id where de.fld_Id=4 and i.fld_InvoiceConfirmed = 1 and i.fld_Id=".$id.";");
     }
         
