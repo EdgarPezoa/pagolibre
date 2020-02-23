@@ -53,7 +53,7 @@ class TransaccionController extends Controller
             'cod_usuario' => $usuario->id_usuario,
             'invoice_id' => $invoice->fld_Id,
             'flowOrder' => null,
-            'cod_estado' => null,
+            'cod_estado' => 1,
             'subject' => $invoice->fld_DeviceDescription,
             'amount' => number_format($invoice->fld_InvoiceAmount,0,'',''),
             'paymentMedia' => null,
