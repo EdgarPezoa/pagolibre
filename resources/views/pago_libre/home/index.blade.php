@@ -67,7 +67,7 @@
                         </div>
                         <div class="resumenItem">
                             {{ Form::open(['route' => 'pagolibre_transaccion.store', 'method' => 'post']) }}
-                                {{Form::hidden('id', $invoice[0]->fld_Id)}}
+                                {{Form::hidden('id',1)}}
                                 {{Form::submit('INICIAR PAGO',['class'=>'btn btn-danger'])}}
                                 <button class="btn btn-primary">VER DETALLES ></button>
                             {{ Form::close() }}

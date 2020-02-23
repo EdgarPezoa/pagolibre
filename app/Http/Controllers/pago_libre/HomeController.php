@@ -13,8 +13,8 @@ class HomeController extends Controller
     public function index(){
         $usuario = Auth::user();
         $usuarioEmail = $usuario->email;
-        $invoice = InvoiceModel::getInvoice();
-        return view('pago_libre.home.index', compact('usuarioEmail','invoice'));
+        // $invoice = InvoiceModel::getInvoice();        
+        return view('pago_libre.home.index', compact('usuarioEmail'));
     }
 
     // @TODOO BORRAR
