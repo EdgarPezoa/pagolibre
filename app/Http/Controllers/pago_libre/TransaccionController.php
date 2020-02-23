@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\InvoiceModel;
 use App\Models\TransaccionModel;
 
+
 class TransaccionController extends Controller
 {
     /**
