@@ -167,7 +167,7 @@ class FlowController extends Controller
             $transaccion->paymenteBalance = $response['paymentData']['balance'];
             $transaccion->requestDate = $response['requestDate'];
             $transaccion->paymentDate = $response['paymentData']['date'];
-            $transaccion->transferDate = $response['paymentData']['transferDate'];
+            $transaccion->paymentTransferDate = $response['paymentData']['transferDate'];
             $transaccion->save();
 
         } catch (Exception $e) {
