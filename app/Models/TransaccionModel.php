@@ -25,7 +25,7 @@ class TransaccionModel extends Model
         'paymenteBalance',
         'requestDate',
         'paymentDate',
-        'paymenteTransferDate',
+        'paymentTransferDate',
         'updated_at',
         'created_at'
     ];
