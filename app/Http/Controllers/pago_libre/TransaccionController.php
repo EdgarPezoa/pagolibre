@@ -8,6 +8,7 @@ use App\Http\Controllers\Flow\FlowController;
 use Illuminate\Support\Facades\Auth;
 use App\Models\InvoiceModel;
 use App\Models\TransaccionModel;
+use Excetion;
 
 class TransaccionController extends Controller
 {
@@ -76,8 +77,14 @@ class TransaccionController extends Controller
             "optional" => $optional,
           );
 
-          
-        return redirect($flow->generarPago($params));
+        try {
+            $redirect = $flow->generarPago($params);
+        } catch (Excetion $e) {
+            Log::emergency($e);
+            return redirect()->route('pagolibre_index');
+        }
+        
+        return redirect($redirect);
     }
 
     /**

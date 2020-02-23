@@ -164,12 +164,14 @@ class FlowController extends Controller
         $params['apiKey'] = $this->apiKey;
         $params['urlConfirmation'] = $this->baseUrl.'/confirm';
         $params['urlReturn'] = $this->baseUrl.'/result';
-
         $service = Utils::PAYMENT_CREATE;
-
         $request = $this->sendRequest($service, $params, 'POST');
-        $redirect = $request["url"] . "?token=" . $request["token"];
 
+        if(isset($request["code"])){
+            throw new Exception($request["message"], $request["code"]);
+        }
+        
+        $redirect = $request["url"] . "?token=" . $request["token"];
 	    return $redirect;
     }
     
