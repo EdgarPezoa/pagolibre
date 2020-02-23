@@ -21,7 +21,7 @@ class CreateTransaccionesTable extends Migration
             $table->integer('flowOrder')->nullable();
 
             $table->string('subject');
-            $table->bigInteger('amount');
+            $table->unsignedBigInteger('amount');
             $table->string('paymentMedia')->nullable();
             $table->string('payerEmail')->nullable();
             $table->integer('paymenteFee')->nullable();

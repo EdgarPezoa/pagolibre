@@ -49,14 +49,13 @@ class TransaccionController extends Controller
             "nombre" => "Rodolfo"
         );
         $optional = json_encode($optional);
-
         $transaccion = TransaccionModel::create([
             'cod_usuario' => $usuario->id_usuario,
             'invoice_id' => $invoice->fld_Id,
             'flowOrder' => null,
             'cod_estado' => null,
             'subject' => $invoice->fld_DeviceDescription,
-            'amount' => $invoice->fld_InvoiceAmount,
+            'amount' => number_format($invoice->fld_InvoiceAmount,0,'',''),
             'paymentMedia' => null,
             'payerEmail' => null,
             'paymenteFee' => null,
