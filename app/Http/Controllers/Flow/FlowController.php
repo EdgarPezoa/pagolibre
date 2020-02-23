@@ -144,6 +144,7 @@ class FlowController extends Controller
     }
 
     public function confirm(Request $request){
+        dd($request);
         try {
             if(!isset($request->token)) {
                 throw new Exception("No se recibio el token", 1);
