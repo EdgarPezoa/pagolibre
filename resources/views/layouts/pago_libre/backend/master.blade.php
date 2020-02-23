@@ -61,6 +61,7 @@
         <script src="{{ asset('js/core/jquery.placeholder.min.js') }}"></script>
         <script src="{{ asset('js/core/js.cookie.min.js') }}"></script>
         <script src="{{ asset('js/appTheme.js') }}"></script>
+        <script src="{{ asset('pagolibre/main.js') }}"></script>
 
         @yield('scriptsPage')                    
         <!-- <script>
