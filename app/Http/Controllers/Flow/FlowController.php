@@ -108,9 +108,7 @@ class FlowController extends Controller
         return array("response" => $response, "info" => $info);
     }
 
-    public function result(Request $request){        
-        Log::info($request);
-        dd($request);
+    public function result(Request $request){                        
         try {
             if(!isset($request->token)) {
                 throw new Exception("No se recibio el token", 1);
@@ -136,9 +134,10 @@ class FlowController extends Controller
             // $transaccion->paymentDate = $response['paymentData']['date'];
             // $transaccion->transferDate = $response['paymentData']['transferDate'];
             // $transaccion->save();
+            echo 'hola';
             
         } catch (Exception $e) {
-            echo "Error: " . $e->getCode() . " - " . $e->getMessage();
+            Log::info($request);
         }
         
     }
