@@ -137,7 +137,7 @@ class FlowController extends Controller
         } catch (Exception $e) {
             echo "Error: " . $e->getCode() . " - " . $e->getMessage();
         }
-        return dd($response);
+        dd($response);
     }
 
     public function confirm(Request $request){
@@ -170,6 +170,7 @@ class FlowController extends Controller
         } catch (Exception $e) {
             echo "Error: " . $e->getCode() . " - " . $e->getMessage();
         }
+        dd($response);
     }
 
     public function generarPago($params){
