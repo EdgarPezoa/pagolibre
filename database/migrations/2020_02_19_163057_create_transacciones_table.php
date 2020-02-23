@@ -29,7 +29,7 @@ class CreateTransaccionesTable extends Migration
             $table->integer('paymenteBalance')->nullable();
             $table->timestamp('requestDate')->nullable();
             $table->timestamp('paymentDate')->nullable();
-            $table->timestamp('paymenteTransferDate')->nullable();
+            $table->timestamp('paymentTransferDate')->nullable();
 
             $table->timestamps();
         });
