@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class TransaccionModel extends Model
 {
-    protected $connection = 'pagolibre_sqlsrv';
+    protected $connection = 'mysql';
     protected $table = 'transacciones';
     protected $primaryKey = 'cod_transaccion';
     public $timestamps = true;

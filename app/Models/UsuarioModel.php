@@ -9,7 +9,7 @@ class UsuarioModel extends Authenticatable
 {
     use Notifiable;
 
-    protected $connection = 'pagolibre_sqlsrv';
+    protected $connection = 'mysql';
     protected $table = 'usuario';
     protected $primaryKey = 'id_usuario';
     public $timestamps = true;
