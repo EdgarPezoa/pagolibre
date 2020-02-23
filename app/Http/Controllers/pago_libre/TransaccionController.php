@@ -63,7 +63,7 @@ class TransaccionController extends Controller
             'paymenteBalance' => null,
             'requestDate' => null,
             'paymentDate' => null,
-            'paymenteTransferDate' => null,
+            'paymentTransferDate' => null,
         ]);
 
         $params = array( 
