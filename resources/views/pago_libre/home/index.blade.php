@@ -66,7 +66,7 @@
                             <label class="resumenLabelTitle" for="saldo">Saldo vigente: <span> $10.000</span></label><br>
                         </div>
                         <div class="resumenItem">
-                            {{ Form::open(['route' => 'pagolibre_transaccion.store', 'method' => 'post']) }}
+                            {{ Form::open(['route' => 'apiFlow_transaccion.store', 'method' => 'post']) }}
                                 {{Form::hidden('id',1)}}
                                 {{Form::submit('INICIAR PAGO',['class'=>'btn btn-danger'])}}
                                 <button class="btn btn-primary">VER DETALLES ></button>
