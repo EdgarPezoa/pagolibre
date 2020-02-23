@@ -182,7 +182,7 @@ class FlowController extends Controller
         $request = $this->sendRequest($service, $params, 'POST');        
         $redirect = $request["url"] . "?token=" . $request["token"];
 
-	    redirect($redirect);
+	    return $redirect;
     }
     
 }
