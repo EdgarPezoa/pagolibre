@@ -143,8 +143,7 @@ class FlowController extends Controller
         
     }
 
-    public function confirm(Request $request){
-        dd($request);
+    public function confirm(Request $request){        
         try {
             if(!isset($request->token)) {
                 throw new Exception("No se recibio el token", 1);
@@ -172,7 +171,7 @@ class FlowController extends Controller
             $transaccion->save();
 
         } catch (Exception $e) {
-            // Log::info($e);
+            Log::info($e);
         }        
     }
 
