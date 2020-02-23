@@ -8,6 +8,7 @@ use App\Http\Controllers\Flow\Utils;
 use App\Models\InvoiceModel;
 use App\Models\TransaccionModel;
 use Exception;
+use Log;
 
 class FlowController extends Controller
 {
@@ -107,8 +108,8 @@ class FlowController extends Controller
         return array("response" => $response, "info" => $info);
     }
 
-    public function result(Request $request){
-        dd($request);
+    public function result(Request $request){        
+        Log::info($request);
         try {
             if(!isset($request->token)) {
                 throw new Exception("No se recibio el token", 1);
@@ -154,6 +155,7 @@ class FlowController extends Controller
             $service = Utils::PAYMENT_CREATE_GET_STATUS;
             $response = $this->sendRequest($service, $params, 'GET');
             
+            Log::info($response);
             //Actualiza los datos en su sistema            
             $transaccion = TransaccionModel::where('cod_transaccion', $response['commerceOrder'])->first();
             $transaccion->flowOrder = $response['flowOrder'];
