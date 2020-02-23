@@ -179,11 +179,11 @@ class FlowController extends Controller
         $params['urlConfirmation'] = $this->baseUrl.'/confirm';
         $params['urlReturn'] = $this->baseUrl.'/result';
         
+        dd($params);
         $service = Utils::PAYMENT_CREATE;
 
-        $request = $this->sendRequest($service, $params, 'POST');        
+        $request = $this->sendRequest($service, $params, 'POST');
         $redirect = $request["url"] . "?token=" . $request["token"];
-
         
 	    return $redirect;
     }
