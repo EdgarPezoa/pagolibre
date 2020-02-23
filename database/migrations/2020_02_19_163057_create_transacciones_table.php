@@ -17,6 +17,7 @@ class CreateTransaccionesTable extends Migration
             $table->increments('cod_transaccion');
             $table->integer('cod_usuario');
             $table->integer('invoice_id');
+            $table->integer('commerceOrder');
             $table->integer('cod_estado')->nullable();
             $table->integer('flowOrder')->nullable();
 
