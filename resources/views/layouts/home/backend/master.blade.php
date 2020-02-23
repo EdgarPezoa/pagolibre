@@ -37,7 +37,7 @@
     <!-- <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400italic,600,700%7COpen+Sans:300,400,400italic,600,700">         -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{{asset('css/app.css')}}">
+    <link rel="stylesheet" href="{{asset('css/app.css')}}">    
     <link rel="stylesheet" href="{{asset('home/main.css')}}">
     @yield('cssPage')
 
@@ -60,6 +60,7 @@
             });
         </script> -->
     <script src="{{asset('js/app.js')}}"></script>
+    @yield('custom-js')
 </body>
 
 </html>

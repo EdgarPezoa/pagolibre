@@ -23,7 +23,7 @@
                 </li>
             </ul>
             <ul class="navbar-nav ml-auto">
-                <a class="btn btn-primary btnLogin" href="{{route('login')}}">Acceso Usuario</a>
+                <a class="btn btn-primary btnLogin"  data-toggle="modal" data-target="#modal-login" >Acceso Usuario</a>
             </ul>
         </div>
     </nav>

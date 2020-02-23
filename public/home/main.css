@@ -52,6 +52,7 @@ body{
 .btnLogin{
     width: 200px;
     font-size: 1.1rem;
+    color: #fff !important;
 }
 
 .home .nav-item{
@@ -62,4 +63,47 @@ body{
 .dashboardUserIcon{
     padding-left: 10px !important;
     padding-right: 10px !important;
+}
+
+#modal-login {
+
+}
+
+#modal-login .block-custom {
+    padding: 2em;
+}
+
+#modal-login .bg-primary {
+    background-color: #fc8202 !important; 
+}
+
+#modal-login .block-header {
+    padding: 10px;    
+    border-radius: 5px;
+}
+
+#modal-login .block-header .block-options {
+    text-align: center;
+    list-style: none;    
+    margin: 0px;
+    padding: 0px;
+}
+
+#modal-login .block-header .block-options a {
+    font-size: 15px;
+    color: #fff;    
+}
+
+#modal-login .block-header .block-title {
+    color: #fff;
+    margin-bottom: 0px;
+    text-transform: uppercase;
+}
+
+#modal-login .block-content-narrow {
+    margin-top: 20px;
+}
+
+.custom-recuerdame {
+    margin-left: 30px;
 }
