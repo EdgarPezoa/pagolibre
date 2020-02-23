@@ -154,7 +154,7 @@ class FlowController extends Controller
             $response = $this->sendRequest($service, $params, 'GET');
             
             //Actualiza los datos en su sistema
-            $transaccion = TransaccionModel::where('commerceOrder', $response['commerceOrder'])->first();
+            $transaccion = TransaccionModel::where('cod_transaccion', $response['commerceOrder'])->first();
             $transaccion->flowOrder = $response['flowOrder'];
             $transaccion->cod_estado = $response['status'];
             $transaccion->paymentMedia = $response['paymentData']['media'];
