@@ -170,7 +170,7 @@ class FlowController extends Controller
             $transaccion->save();
 
         } catch (Exception $e) {
-            Log::info($e);
+            // Log::info($e);
         }        
     }
 
