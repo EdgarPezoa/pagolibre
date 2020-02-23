@@ -155,7 +155,7 @@ class FlowController extends Controller
             $service = Utils::PAYMENT_CREATE_GET_STATUS;
             $response = $this->sendRequest($service, $params, 'GET');
             
-            Log::info($response);
+            
             //Actualiza los datos en su sistema            
             $transaccion = TransaccionModel::where('cod_transaccion', $response['commerceOrder'])->first();
             $transaccion->flowOrder = $response['flowOrder'];
@@ -171,7 +171,7 @@ class FlowController extends Controller
             $transaccion->save();
 
         } catch (Exception $e) {
-            echo "Error: " . $e->getCode() . " - " . $e->getMessage();
+            Log::info($e);
         }        
     }
 
