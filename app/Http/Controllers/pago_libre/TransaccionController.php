@@ -42,7 +42,8 @@ class TransaccionController extends Controller
     {
         $flow = new FlowController();
         $usuario = Auth::user();
-        $invoice = InvoiceModel::getInvoiceWhere($request->id)[0];
+        //$invoice = InvoiceModel::getInvoiceWhere($request->id)[0];
+
 
         $optional = array(
             "rut" => "17244050-9",
@@ -51,11 +52,11 @@ class TransaccionController extends Controller
         $optional = json_encode($optional);
         $transaccion = TransaccionModel::create([
             'cod_usuario' => $usuario->id_usuario,
-            'invoice_id' => $invoice->fld_Id,
+            'invoice_id' => 5,
             'flowOrder' => null,
             'cod_estado' => null,
-            'subject' => $invoice->fld_DeviceDescription,
-            'amount' => number_format($invoice->fld_InvoiceAmount,0,'',''),
+            'subject' => 'cualquier wea',
+            'amount' => 1500,
             'paymentMedia' => null,
             'payerEmail' => null,
             'paymenteFee' => null,
@@ -68,9 +69,9 @@ class TransaccionController extends Controller
 
         $params = array( 
             "commerceOrder" => $transaccion->cod_transaccion,
-            "subject" => $invoice->fld_DeviceDescription,
+            "subject" => 'cualquier wea',
             "currency" => "CLP",
-            "amount"=> $invoice->fld_InvoiceAmount,
+            "amount"=> 1500,
             "email" => $usuario->email,
             "paymentMethod" => 9,
             "optional" => $optional,
