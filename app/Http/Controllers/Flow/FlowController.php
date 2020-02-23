@@ -8,6 +8,7 @@ use App\Http\Controllers\Flow\Utils;
 use App\Models\InvoiceModel;
 use App\Models\TransaccionModel;
 use Exception;
+use Log;
 
 class FlowController extends Controller
 {
@@ -80,7 +81,7 @@ class FlowController extends Controller
             } 
             $info = curl_getinfo($cURL);
         }catch (Exception $e) {
-            echo 'Error: ' . $e->getCode() . ' - ' . $e->getMessage();
+            Log::emergency($e);
         }
 
         return array("response" => $response, "info" => $info);
@@ -102,7 +103,7 @@ class FlowController extends Controller
             $info = curl_getinfo($cURL);
 
         } catch (Exception $e) {
-            echo 'Error: ' . $e->getCode() . ' - ' . $e->getMessage();
+            Log::emergency($e);
         }
         return array("response" => $response, "info" => $info);
     }
@@ -120,22 +121,9 @@ class FlowController extends Controller
             $service = Utils::PAYMENT_CREATE_GET_STATUS;
             $response = $this->sendRequest($service, $params, 'GET');
             
-            //Actualiza los datos en su sistema
-            $transaccion = TransaccionModel::where('cod_transaccion', $response['commerceOrder'])->first();
-            $transaccion->flowOrder = $response['flowOrder'];
-            $transaccion->cod_estado = $response['status'];
-            $transaccion->paymentMedia = $response['paymentData']['media'];
-            $transaccion->payerEmail = $response['payer'];
-            $transaccion->paymenteFee = $response['paymentData']['fee'];
-            $transaccion->paymenteTaxes = $response['paymentData']['taxes'];
-            $transaccion->paymenteBalance = $response['paymentData']['balance'];
-            $transaccion->requestDate = $response['requestDate'];
-            $transaccion->paymentDate = $response['paymentData']['date'];
-            $transaccion->transferDate = $response['paymentData']['transferDate'];
-            $transaccion->save();
             
         } catch (Exception $e) {
-            echo "Error: " . $e->getCode() . " - " . $e->getMessage();
+            Log::emergency($e);
         }
         return dd($response);
     }
@@ -168,7 +156,7 @@ class FlowController extends Controller
             $transaccion->save();
 
         } catch (Exception $e) {
-            echo "Error: " . $e->getCode() . " - " . $e->getMessage();
+            Log::emergency($e);
         }
     }
 
@@ -182,7 +170,7 @@ class FlowController extends Controller
         $request = $this->sendRequest($service, $params, 'POST');
         $redirect = $request["url"] . "?token=" . $request["token"];
 
-	    return redirect($redirect);
+	    return $redirect;
     }
     
 }

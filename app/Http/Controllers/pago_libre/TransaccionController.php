@@ -77,7 +77,7 @@ class TransaccionController extends Controller
           );
 
           
-        $flow->generarPago($params);
+        return redirect($flow->generarPago($params));
     }
 
     /**
