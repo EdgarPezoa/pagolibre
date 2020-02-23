@@ -39,8 +39,6 @@ Route::middleware(['guest'])->group(function () {
                 
                 Route::get('/result', 'FlowController@result')->name('result');
                 Route::post('/result', 'FlowController@result')->name('result');
-
-                Route::get('/prueba', 'FlowController@prueba')->name('prueba');
             });
         });
     });
