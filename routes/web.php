@@ -12,7 +12,7 @@ Route::namespace('home')->group(function () {
 });
 
 // PAGO LIBRE
-Route::middleware(['login'])->group(function () {
+Route::middleware(['guest'])->group(function () {
     Route::namespace('pago_libre')->group(function () {
         Route::prefix('intranet')->group(function () {
             Route::name('pagolibre_')->group(function () {
