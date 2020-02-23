@@ -31,11 +31,11 @@
                     <div class="resumenContainer">
                         <div class="resumenItem">
                             <p class="resumenLabelTitle">N° de Cliente (fld_ID)</p>
-                            <p class="valorResumen">{{ // $invoice[0]->fld_Id}}</p>
+                            <p class="valorResumen"></p>
                         </div>
                         <div class="resumenItem">
                             <p class="resumenLabelTitle">Fecha de vencimiento (fld_InvoiceEndDateTime)</p>
-                            <p class="valorResumen">{{ // $invoice[0]->fld_InvoiceEndDateTime}}</p>
+                            <p class="valorResumen"></p>
                         </div>
                         <div class="resumenItem">
                             <p class="resumenLabelTitle">Dirección</p>
