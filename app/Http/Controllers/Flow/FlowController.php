@@ -110,6 +110,7 @@ class FlowController extends Controller
 
     public function result(Request $request){        
         Log::info($request);
+        dd($request);
         try {
             if(!isset($request->token)) {
                 throw new Exception("No se recibio el token", 1);
