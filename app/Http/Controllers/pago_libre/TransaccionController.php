@@ -8,6 +8,7 @@ use App\Http\Controllers\Flow\FlowController;
 use Illuminate\Support\Facades\Auth;
 use App\Models\InvoiceModel;
 use App\Models\TransaccionModel;
+use Excetion;
 
 class TransaccionController extends Controller
 {
@@ -42,7 +43,7 @@ class TransaccionController extends Controller
     {
         $flow = new FlowController();
         $usuario = Auth::user();
-        $invoice = InvoiceModel::getInvoiceWhere($request->id)[0];
+        $invoice = InvoiceModel::getInvoiceWhereHistorico($request->id)[0];
 
         $optional = array(
             "rut" => "17244050-9",
@@ -76,8 +77,14 @@ class TransaccionController extends Controller
             "optional" => $optional,
           );
 
-          
-        return redirect($flow->generarPago($params));
+        try {
+            $redirect = $flow->generarPago($params);
+        } catch (Excetion $e) {
+            Log::emergency($e);
+            return redirect()->route('pagolibre_index');
+        }
+        
+        return redirect($redirect);
     }
 
     /**

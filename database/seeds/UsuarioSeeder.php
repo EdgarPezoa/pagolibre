@@ -13,13 +13,19 @@ class UsuarioSeeder extends Seeder
     public function run()
     {
         UsuarioModel::create([
-            'email' => 'edgar@scek.cl',
+            'email' => 'edgar@gmail.com',
             'password' => bcrypt('Eddy'),
             'device' => 4
         ]);
         UsuarioModel::create([
-            'email' => 'rodolfo@karkon.cl',
+            'email' => 'rodolfo@gmail.com',
             'password' => bcrypt('Rodolfox'),
+            'device' => 4
+        ]);
+
+        UsuarioModel::create([
+            'email' => 'fabian@gmail.com',
+            'password' => bcrypt('Fabian'),
             'device' => 4
         ]);
     }
