@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 use App\Models\InvoiceModel;
 use App\Models\TransaccionModel;
+use Session;
 
 class HomeController extends Controller
 {
@@ -14,6 +15,8 @@ class HomeController extends Controller
         $usuario = Auth::user();
         $usuarioEmail = $usuario->email;
         $invoiceHistorico = InvoiceModel::getInvoiceHistorico();
+        Session::flash('success', 'Éxito');
+        Session::flash('error', 'Error');
         return view('pago_libre.home.index', compact('usuarioEmail','invoiceHistorico'));
     }
 
@@ -23,3 +26,4 @@ class HomeController extends Controller
         return view('pago_libre.home.historicos', compact('usuarioEmail'));
     }
 }
+
