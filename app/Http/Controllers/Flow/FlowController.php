@@ -108,6 +108,7 @@ class FlowController extends Controller
     }
 
     public function result(Request $request){
+        dd($request);
         try {
             if(!isset($request->token)) {
                 throw new Exception("No se recibio el token", 1);
@@ -137,7 +138,7 @@ class FlowController extends Controller
         } catch (Exception $e) {
             echo "Error: " . $e->getCode() . " - " . $e->getMessage();
         }
-        dd($response);
+        
     }
 
     public function confirm(Request $request){
@@ -153,7 +154,7 @@ class FlowController extends Controller
             $service = Utils::PAYMENT_CREATE_GET_STATUS;
             $response = $this->sendRequest($service, $params, 'GET');
             
-            //Actualiza los datos en su sistema
+            //Actualiza los datos en su sistema            
             $transaccion = TransaccionModel::where('cod_transaccion', $response['commerceOrder'])->first();
             $transaccion->flowOrder = $response['flowOrder'];
             $transaccion->cod_estado = $response['status'];
@@ -169,8 +170,7 @@ class FlowController extends Controller
 
         } catch (Exception $e) {
             echo "Error: " . $e->getCode() . " - " . $e->getMessage();
-        }
-        dd($response);
+        }        
     }
 
     public function generarPago($params){
