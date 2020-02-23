@@ -20,7 +20,7 @@ Route::middleware(['login'])->group(function () {
                 // @TODOO BORRAR
                 Route::get('/historicos', 'HomeController@historicos')->name('historicos');
 
-                
+                Route::resource('/transaccion', 'TransaccionController');
                 
             });
         });
@@ -41,7 +41,6 @@ Route::middleware(['guest'])->group(function () {
                 Route::post('/result', 'FlowController@result')->name('result');
 
                 Route::get('/prueba', 'FlowController@prueba')->name('prueba');
-                Route::resource('/transaccion', 'TransaccionController');
             });
         });
     });
