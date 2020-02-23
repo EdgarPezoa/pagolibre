@@ -12,7 +12,7 @@ Route::namespace('home')->group(function () {
 });
 
 // PAGO LIBRE
-Route::middleware(['login'])->group(function () {
+Route::middleware(['guest'])->group(function () {
     Route::namespace('pago_libre')->group(function () {
         Route::prefix('intranet')->group(function () {
             Route::name('pagolibre_')->group(function () {
@@ -20,7 +20,7 @@ Route::middleware(['login'])->group(function () {
                 // @TODOO BORRAR
                 Route::get('/historicos', 'HomeController@historicos')->name('historicos');
 
-                
+                Route::resource('/transaccion', 'TransaccionController');
                 
             });
         });
@@ -33,8 +33,6 @@ Route::middleware(['guest'])->group(function () {
     Route::namespace('Flow')->group(function () {
         Route::prefix('apiFlow')->group(function () {
             Route::name('apiFlow_')->group(function () {
-
-                Route::resource('/transaccion', 'TransaccionController');
 
                 Route::get('/confirm', 'FlowController@confirm')->name('confirm');
                 Route::post('/confirm', 'FlowController@confirm')->name('confirm');
