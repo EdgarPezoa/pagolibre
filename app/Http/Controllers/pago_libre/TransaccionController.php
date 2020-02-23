@@ -55,7 +55,7 @@ class TransaccionController extends Controller
             'cod_usuario' => $usuario->id_usuario,
             'invoice_id' => 5,
             'flowOrder' => null,
-            'cod_estado' => null,
+            'cod_estado' => 1,
             'subject' => 'cualquier wea',
             'amount' => 1500,
             'paymentMedia' => null,
