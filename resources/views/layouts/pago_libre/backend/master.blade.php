@@ -63,12 +63,6 @@
         <script src="{{ asset('js/appTheme.js') }}"></script>
         <script src="{{ asset('pagolibre/main.js') }}"></script>
 
-        @yield('scriptsPage')                    
-        <!-- <script>
-            $(function () {
-                // Init page helpers (Slick Slider plugin)
-                App.initHelpers('slick');
-            });
-        </script> -->
+        @yield('scriptsPage')
     </body>
 </html>
