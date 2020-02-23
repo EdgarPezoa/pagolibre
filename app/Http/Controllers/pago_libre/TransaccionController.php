@@ -77,7 +77,7 @@ class TransaccionController extends Controller
           );
 
           
-        $flow->prueba($params);
+        $flow->generarPago($params);
     }
 
     /**

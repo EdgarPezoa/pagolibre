@@ -107,29 +107,6 @@ class FlowController extends Controller
         return array("response" => $response, "info" => $info);
     }
 
-    public function generarPago($params){
-        $optional = array(
-            "rut" => "9999999-9",
-            "nombre" => "cliente 1"
-        );
-        $optional = json_encode($optional);
-
-        $params = array( 
-            "apiKey" => $this->apiKey,
-            "commerceOrder" => "Orden del comercio",
-            "subject" => "Descripción de la orden",
-            "currency" => "CLP",
-            "amount"=> 1000,
-            "email" => "email del pagador",
-            "paymentMethod" => 9,
-            "urlConfirmation" => "url callback del comercio donde Flow confirmará el pago",
-            "urlReturn" => "url de retorno del comercio donde Flow redirigirá al pagador",
-            "optional" => $optional,
-          ); 
-          $service = Utils::PAYMENT_CREATE;
-
-    }
-
     public function result(Request $request){
         try {
             if(!isset($request->token)) {
@@ -195,7 +172,7 @@ class FlowController extends Controller
         }
     }
 
-    public function prueba($params){
+    public function generarPago($params){
         $params['apiKey'] = $this->apiKey;
         $params['urlConfirmation'] = $this->baseUrl.'/confirm';
         $params['urlReturn'] = $this->baseUrl.'/result';
