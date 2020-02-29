@@ -71,7 +71,7 @@ class TransaccionController extends Controller
             "commerceOrder" => $transaccion->cod_transaccion,
             "subject" => $invoice->fld_DeviceDescription,
             "currency" => "CLP",
-            "amount"=> $invoice->fld_InvoiceAmount,
+            "amount"=> number_format($invoice->fld_InvoiceAmount,0,'',''),
             "email" => $usuario->email,
             "paymentMethod" => 9,
             "optional" => $optional,

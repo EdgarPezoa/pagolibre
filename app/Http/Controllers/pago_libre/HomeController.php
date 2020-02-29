@@ -14,10 +14,10 @@ class HomeController extends Controller
     public function index(){
         $usuario = Auth::user();
         $usuarioEmail = $usuario->email;
-        $invoiceHistorico = InvoiceModel::getInvoiceHistorico();
+        $invoiceFactura = InvoiceModel::getInvoiceFactura();
         Session::flash('success', 'Éxito');
         Session::flash('error', 'Error');
-        return view('pago_libre.home.index', compact('usuarioEmail','invoiceHistorico'));
+        return view('pago_libre.home.index', compact('usuarioEmail','invoiceFactura'));
     }
 
     // @TODOO BORRAR
