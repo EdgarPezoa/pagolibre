@@ -50,31 +50,31 @@
                     <hr>
                     <div class="resumenContainer">
                         <div class="resumenItem">
-                            <p class="resumenLabelTitle">N° de Cliente (fld_ID)</p>
-                            <p class="valorResumen"></p>
+                            <p class="resumenLabelTitle">N° de Factura</p>
+                            <p class="valorResumen">{{$invoiceHistorico->fld_Id}}</p>
                         </div>
                         <div class="resumenItem">
-                            <p class="resumenLabelTitle">Fecha de vencimiento (fld_InvoiceEndDateTime)</p>
-                            <p class="valorResumen"></p>
+                            <p class="resumenLabelTitle">Fecha de Facturacion</p>
+                            <p class="valorResumen">{{$invoiceHistorico->fld_InvoiceStartDateTime}}</p>
                         </div>
                         <div class="resumenItem">
-                            <p class="resumenLabelTitle">Dirección</p>
-                            <p class="valorResumen">Av. Providencia #123</p>
+                            <p class="resumenLabelTitle">Fecha de Facturacion</p>
+                        <p class="valorResumen">{{$invoiceHistorico->fld_InvoiceEndDateTime}}</p>
                         </div>
                     </div>
 
                     <div class="resumenContainer">
                         <div class="resumenItem">
-                            <p class="resumenLabelTitle">Fecha último pago</p>
-                            <p class="valorResumen">13/02/2020</p>
+                            <p class="resumenLabelTitle">Consumo en KW</p>
+                            <p class="valorResumen">{{$invoiceHistorico->fld_InvoiceConsumption}}</p>
                         </div>
                         <div class="resumenItem">
-                            <p class="resumenLabelTitle">Monto último pago</p>
-                            <p class="valorResumen">$10.000</p>
+                            <p class="resumenLabelTitle">Valor inicial en KW</p>
+                            <p class="valorResumen">{{$invoiceHistorico->fld_InvoiceStartIndex}}</p>
                         </div>
                         <div class="resumenItem">
-                            <p class="resumenLabelTitle">Corte después de</p>
-                            <p class="valorResumen">Sin corte</p>
+                            <p class="resumenLabelTitle">Valor de termino en KW</p>
+                            <p class="valorResumen">{{$invoiceHistorico->fld_InvoiceEndIndex}}</p>
                         </div>
                     </div>
 
@@ -83,11 +83,11 @@
                     <div class="resumenContainerForm">
                         <div class="resumenItem">
                             <input type="radio" id="saldo" name="saldo" value="saldo" checked>
-                            <label class="resumenLabelTitle" for="saldo">Saldo vigente: <span> $10.000</span></label><br>
+                            <label class="resumenLabelTitle" for="saldo">Saldo vigente: <span>{{$invoiceHistorico->fld_InvoiceAmount}}</span></label><br>
                         </div>
                         <div class="resumenItem">
                             {{ Form::open(['route' => 'pagolibre_transaccion.store', 'method' => 'post']) }}
-                                {{Form::hidden('id', "8")}}
+                                {{Form::hidden('id', $invoiceHistorico->fld_Id)}}
                                 {{Form::submit('INICIAR PAGO',['class'=>'btn btn-danger'])}}
                                 <button class="btn btn-primary">VER DETALLES ></button>
                             {{ Form::close() }}

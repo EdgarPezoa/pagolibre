@@ -19,7 +19,7 @@
             </li>
         </ul>
         <ul class="navbar-nav ml-auto">
-            <a class="btn btn-warning btnRegistro" href="#">Registrate</a>
+            <a class="btn btn-warning btnRegistro" href="{{route('register')}}">Registrate</a>
         </ul>
     </div>
 </footer>
