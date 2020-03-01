@@ -135,6 +135,7 @@ class FlowController extends Controller
             // $transaccion->transferDate = $response['paymentData']['transferDate'];
             // $transaccion->save();
             dd($response);
+            return view('pago_libre.transaccion.result', compact('response'));
             
         } catch (Exception $e) {
             Log::info($request);
