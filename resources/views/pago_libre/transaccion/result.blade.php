@@ -10,13 +10,14 @@
     <div class="block block-rounded">
         <div class="block-header">            
             <h1 class="block-title">PAGO FINALIZADO</h1>
+
         </div>
+        <h3>Información de Pago </h3><hr>
         <div class="block-content block-content-full block-content-narrow">
             <div class="push-30 push-30-t">
 
                 <table class="table">                    
-                    <tbody>
-                        <tr> <td><h3>Datos de Facturación</h3> <hr></td></tr>
+                    <tbody>                        
                         <tr>
                             <td>Orden Flow</td><td>{{ $response['flowOrder'] }}</td>
                         </tr>
@@ -31,10 +32,7 @@
                         </tr>
                         <tr>
                             <td>Correo del Pagador</td><td>{{ $response['payer'] }}</td>                                                        
-                        </tr>  
-                        <tr>
-                            <td><h3>Información de Pago </h3><hr></td>    
-                        </tr>       
+                        </tr>                          
                         <tr>
                             <td>Fecha de Pago</td><td>{{  $response['paymentData']['date'] }}</td>
                         </tr>              
