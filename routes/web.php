@@ -29,13 +29,11 @@ Route::middleware(['login'])->group(function () {
 });
 
 // FLOW
-Route::middleware(['guest'])->group(function () {
-    Route::namespace('Flow')->group(function () {
-        Route::prefix('apiFlow')->group(function () {
-            Route::name('apiFlow_')->group(function () {
-                Route::post('/confirm', 'FlowController@confirm')->name('confirm');
-                Route::post('/result', 'FlowController@result')->name('result');
-            });
+Route::namespace('Flow')->group(function () {
+    Route::prefix('apiFlow')->group(function () {
+        Route::name('apiFlow_')->group(function () {
+            Route::post('/confirm', 'FlowController@confirm')->name('confirm');
+            Route::post('/result', 'FlowController@result')->name('result');
         });
     });
 });
