@@ -128,11 +128,10 @@ class TransaccionController extends Controller
         //
     }
 
-    public function result(Request $request){
+    public function result($response){
         $usuario = Auth::user();
         $usuarioEmail = $usuario->email;
-
-        dd($request);
+        
 
         return view('pago_libre.transaccion.result', compact('response', 'usuarioEmail'));
 
