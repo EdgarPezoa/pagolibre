@@ -55,11 +55,13 @@
                         </div>
                         <div class="resumenItem">
                             <p class="resumenLabelTitle">Fecha inicio de facturacion</p>
-                            <p class="valorResumen">{{date('m/d/Y',time($invoiceFactura->fld_InvoiceStartDateTime))}}</p>
+                            <p class="valorResumen">{{$invoiceFactura->fld_InvoiceStartDateTime}}</p>
+                            <?php //date('m/d/Y',time($invoiceFactura->fld_InvoiceStartDateTime)) ?>
                         </div>
                         <div class="resumenItem">
                             <p class="resumenLabelTitle">Fecha termino de Facturacion</p>
-                        <p class="valorResumen">{{date('m/d/Y',time($invoiceFactura->fld_InvoiceEndDateTime))}}</p>
+                            <p class="valorResumen">{{$invoiceFactura->fld_InvoiceEndDateTime}}</p>
+                            <?php //date('m/d/Y',time($invoiceFactura->fld_InvoiceEndDateTime)) ?>
                         </div>
                     </div>
 
