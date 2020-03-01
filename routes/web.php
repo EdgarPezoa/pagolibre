@@ -19,9 +19,8 @@ Route::middleware(['login'])->group(function () {
                 Route::get('/', 'HomeController@index')->name('index');
                 // @TODOO BORRAR
                 Route::get('/historicos', 'HomeController@historicos')->name('historicos');
-
-                Route::resource('/transaccion', 'TransaccionController');
                 
+                Route::resource('/transaccion', 'TransaccionController');                
             });
         });
 
