@@ -1,4 +1,3 @@
-{{ print_r($response) }}
 @extends('layouts.pago_libre.backend.master')
 @section('title', 'Dashboard')
 @section('pageHeader')
@@ -16,7 +15,9 @@
 <div class="row">
     <div class="col-md-12">
         <div class="block">
-                   
+        
+        {{ print_r($response) }}
+
         </div>
     </div>
 </div>
