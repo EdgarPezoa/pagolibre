@@ -13,7 +13,7 @@
 @endsection
 
 @section('content')
-
+{{ $response }}
 <div class="content">
     <h2 class="content-heading">Comprobante de pago</h2>
     <div class="col-md-6">
