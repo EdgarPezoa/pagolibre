@@ -130,7 +130,7 @@ class FlowController extends Controller
         $usuario = Auth::user();
         $usuarioEmail = $usuario->email;
 
-        if($response == 3){ $estado = 'Rechazado'; }else if($response == 2){ $estado = 'Aceptado'; }
+        if($response['status'] == 3){ $estado = 'Rechazado'; }else if($response['status'] == 2){ $estado = 'Aceptado'; }
 
         return view('pago_libre.transaccion.result', compact('response', 'usuarioEmail', 'estado'));
     }
