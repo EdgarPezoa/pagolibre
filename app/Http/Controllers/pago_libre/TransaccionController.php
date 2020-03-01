@@ -43,7 +43,7 @@ class TransaccionController extends Controller
     {
         $flow = new FlowController();
         $usuario = Auth::user();
-        $invoice = InvoiceModel::getInvoiceWhereHistorico($request->id);
+        $invoice = InvoiceModel::getInvoiceWhereFactura($request->id);
 
         $optional = array(
             "rut" => "17244050-9",
