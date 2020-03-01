@@ -120,11 +120,13 @@ class FlowController extends Controller
 
             $service = Utils::PAYMENT_CREATE_GET_STATUS;
             $response = $this->sendRequest($service, $params, 'GET');                    
-            return redirect()->route('pagolibre_transaccion.result', compact('response'));
+            
             
         } catch (Exception $e) {
             Log::info($request);
         }
+
+        return redirect()->route('pagolibre_transaccion.result', compact('response'));
         
     }
 
