@@ -5,7 +5,7 @@
     <div class="row items-push">
         <div class="col-sm-12">
             <h1 class="page-heading">
-                Pago Finalizado
+                Pago {{ $estado }}
             </h1>
         </div>        
     </div>
@@ -15,7 +15,7 @@
 @section('content')
 {{ dd($response) }}
 <div class="content">
-    <h2 class="content-heading">Comprobante de pago</h2>
+    <h2 class="content-heading">Información</h2>
     <div class="col-md-6">
         <table class="table">                    
             <tbody>                        
