@@ -1,13 +1,5 @@
 @extends('layouts.pago_libre.backend.master')
 @section('title', 'Dashboard')
-@section('pageHeader')
-<div class="content bg-gray-lighter">
-    <div class="row items-push">
-               
-    </div>
-</div>
-@endsection
-
 @section('content')
 <div class="pago-container bg-gray-lighter">
     <div class="col-sm-12">
