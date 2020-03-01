@@ -15,7 +15,7 @@
 @section('content')
 
 <div class="content">
-    <h2 class="content-heading">Your content</h2>
+    <h2 class="content-heading">INFORMACIÓN DE PAGO</h2>
     <table class="table">                    
         <tbody>                        
             <tr>
