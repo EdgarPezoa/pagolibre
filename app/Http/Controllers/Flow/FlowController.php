@@ -126,7 +126,7 @@ class FlowController extends Controller
             $usuarioEmail = $usuario->email;
         
             
-            return view('pago_libre.transaccion.result', compact('response'));
+            return view('pago_libre.transaccion.result', compact('response', 'usuarioEmail'));
             
         } catch (Exception $e) {
             Log::info($request);
