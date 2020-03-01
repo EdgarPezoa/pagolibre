@@ -16,8 +16,11 @@
 <div class="content">
     <h2 class="content-heading">Información</h2>
     <div class="col-md-6">
-        <table class="table">                    
-            <tbody>                        
+        <table class="table table-striped table-sm">                    
+            <tbody> 
+                <thead class="thead-dark">
+                    <tr><th>Dato</th><th></th></tr>
+                </thead>                      
                 <tr>
                     <td>Orden Flow</td><td>{{ $response['flowOrder'] }}</td>
                 </tr>
