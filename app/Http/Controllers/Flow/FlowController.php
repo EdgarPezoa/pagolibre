@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Flow;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\Flow\Utils;
 use App\Models\InvoiceModel;
@@ -126,7 +127,9 @@ class FlowController extends Controller
             Log::info($request);
         }
 
-        redirect()->route('pagolibre_result', array('response' => $response));                
+        $usuario = Auth::user();
+        $usuarioEmail = $usuario->email;
+        return view('pago_libre.transaccion.result', compact('response', 'usuarioEmail'));
     }
 
     public function confirm(Request $request){        
