@@ -19,10 +19,10 @@
         <div class="block-content block-content-full block-content-narrow">
             <div class="push-30 push-30-t">
                 {{ print_r($response) }}
-
-                <h3>Datos de Facturación</h3>
+                
                 <table class="table">                    
                     <tbody>
+                        <tr> <td><h3>Datos de Facturación</h3> <hr></td></tr>
                         <tr>
                             <td>Orden Flow</td><td>{{ $response['flowOrder'] }}</td>
                         </tr>
@@ -39,7 +39,7 @@
                             <td>Correo del Pagador</td><td>{{ $response['payer'] }}</td>                                                        
                         </tr>  
                         <tr>
-                            <td>Información de Pago</td>    
+                            <td><h3>Información de Pago </h3><hr></td>    
                         </tr>       
                         <tr>
                             <td>Fecha de Pago</td><td>{{  $response['paymentData']['date'] }}</td>
