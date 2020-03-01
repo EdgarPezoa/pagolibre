@@ -8,18 +8,12 @@
 <div class="content content-boxed">
     <!-- Demo Content -->
     <div class="block block-rounded">
-        <div class="block-header">
-            <ul class="block-options">
-                <li>
-                    <button type="button"><i class="si si-settings"></i></button>
-                </li>
-            </ul>
-            <h3 class="block-title">Demo Content</h3>
+        <div class="block-header">            
+            <h1 class="block-title">PAGO FINALIZADO</h1>
         </div>
         <div class="block-content block-content-full block-content-narrow">
             <div class="push-30 push-30-t">
-                {{ print_r($response) }}
-                
+
                 <table class="table">                    
                     <tbody>
                         <tr> <td><h3>Datos de Facturación</h3> <hr></td></tr>
