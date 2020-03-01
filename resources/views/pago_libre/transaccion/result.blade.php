@@ -32,7 +32,8 @@
                 </tr>
                 <tr>
                     <td>Correo del Pagador</td><td>{{ $response['payer'] }}</td>                                                        
-                </tr>                          
+                </tr>   
+                {{ dd($response) }}                       
                 @if($response['paymentData'])
                 <tr>
                     <td>Fecha de Pago</td><td>{{  $response['paymentData']['date'] }}</td>
