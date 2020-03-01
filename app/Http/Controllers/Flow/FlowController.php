@@ -19,8 +19,8 @@ class FlowController extends Controller
     protected $baseUrl;
 	
 	public function __construct() {
-		$this->apiKey = env('FLOW_APIKEY', null);
-        $this->secretKey = env('FLOW_SECRETKEY', null);
+		$this->apiKey = '1FA1F877-336C-4626-A8D7-27L5D31EB912';
+        $this->secretKey = '728ac0588dbe8ade9867e5f88b0854c201d1d6af';
         $this->apiUrl = env('FLOW_APIURL', 'https://sandbox.flow.cl/api');
         $this->baseUrl = env('FLOW_BASEURL', 'https://pagolibre.devmockup.cl/apiFlow');
         if($this->apiKey == null || $this->secretKey == null){
