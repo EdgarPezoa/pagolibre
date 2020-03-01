@@ -3,18 +3,20 @@
 @section('pageHeader')
 <div class="content bg-gray-lighter">
     <div class="row items-push">
-        <div class="col-sm-12">
-            <h1 class="page-heading">
-                Pago {{ $estado }}
-            </h1>
-        </div>        
+               
     </div>
 </div>
 @endsection
 
 @section('content')
-<div class="container">
+<div class="pago-container bg-gray-lighter">
+    <div class="col-sm-12">
+        <h1 class="page-heading">
+            Pago {{ $estado }}
+        </h1>
+    </div> 
     <div class="content">
+    
         <h2 class="content-heading">Información</h2>
         <div class="col-md-12">
             <table class="table table-striped table-borderless table-header-bg">                    
