@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Flow;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\Flow\Utils;
 use App\Models\InvoiceModel;
@@ -120,20 +121,10 @@ class FlowController extends Controller
 
             $service = Utils::PAYMENT_CREATE_GET_STATUS;
             $response = $this->sendRequest($service, $params, 'GET');
-            
-            //Actualiza los datos en su sistema
-            // $transaccion = TransaccionModel::where('commerceOrder', $response['commerceOrder'])->first();
-            // $transaccion->flowOrder = $response['flowOrder'];
-            // $transaccion->cod_estado = $response['status'];
-            // $transaccion->paymentMedia = $response['paymentData']['media'];
-            // $transaccion->payerEmail = $response['payer'];
-            // $transaccion->paymenteFee = $response['paymentData']['fee'];
-            // $transaccion->paymenteTaxes = $response['paymentData']['taxes'];
-            // $transaccion->paymenteBalance = $response['paymentData']['balance'];
-            // $transaccion->requestDate = $response['requestDate'];
-            // $transaccion->paymentDate = $response['paymentData']['date'];
-            // $transaccion->transferDate = $response['paymentData']['transferDate'];
-            // $transaccion->save();
+
+            $usuario = Auth::user();
+            $usuarioEmail = $usuario->email;
+        
             
             return view('pago_libre.transaccion.result', compact('response'));
             
