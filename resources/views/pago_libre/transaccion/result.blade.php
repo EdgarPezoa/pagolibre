@@ -25,9 +25,17 @@
                     <tbody>
                         <tr>
                             <td>Orden Flow</td><td>{{ $response['flowOrder'] }}</td>
+                        </tr>
+                        <tr>
                             <td>Orden de comercio</td><td>{{ $response['commerceOrder'] }}</td>
+                        </tr>
+                        <tr>
                             <td>Descripción</td><td>{{ $response['subject'] }}</td>
+                        </tr>
+                        <tr>
                             <td>Monto</td><td>{{ $response['amount'] }}</td>
+                        </tr>
+                        <tr>
                             <td>Correo del Pagador</td><td>{{ $response['payer'] }}</td>                                                        
                         </tr>                        
                     </tbody>
