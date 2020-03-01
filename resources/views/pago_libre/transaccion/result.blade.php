@@ -37,7 +37,16 @@
                         </tr>
                         <tr>
                             <td>Correo del Pagador</td><td>{{ $response['payer'] }}</td>                                                        
-                        </tr>                        
+                        </tr>  
+                        <tr>
+                            <td>Información de Pago</td>    
+                        </tr>       
+                        <tr>
+                            <td>Fecha de Pago</td><td>{{  $response['paymentData']['date'] }}</td>
+                        </tr>              
+                        <tr>
+                            <td>Método de Pago</td><td>{{  $response['paymentData']['media'] }}</td>
+                        </tr>              
                     </tbody>
                 </table>
             </div>
