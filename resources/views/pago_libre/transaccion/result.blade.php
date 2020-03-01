@@ -19,6 +19,19 @@
         <div class="block-content block-content-full block-content-narrow">
             <div class="push-30 push-30-t">
                 {{ print_r($response) }}
+
+                <h3>Datos de Facturación</h3>
+                <table class="table">                    
+                    <tbody>
+                        <tr>
+                            <td>Orden Flow</td><td>{{ $response['flowOrder'] }}</td>
+                            <td>Orden de comercio</td><td>{{ $response['commerceOrder'] }}</td>
+                            <td>Descripción</td><td>{{ $response['subject'] }}</td>
+                            <td>Monto</td><td>{{ $response['amount'] }}</td>
+                            <td>Correo del Pagador</td><td>{{ $response['payer'] }}</td>                                                        
+                        </tr>                        
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
