@@ -126,7 +126,7 @@ class FlowController extends Controller
             Log::info($request);
         }
 
-        return redirect()->route('pagolibre_transaccion.result', compact('response'));
+        return redirect()->route('pagolibre_result', compact('response'));
         
     }
 
