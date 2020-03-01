@@ -33,12 +33,14 @@
             <tr>
                 <td>Correo del Pagador</td><td>{{ $response['payer'] }}</td>                                                        
             </tr>                          
+            @if($response['paymentData'])
             <tr>
                 <td>Fecha de Pago</td><td>{{  $response['paymentData']['date'] }}</td>
             </tr>              
             <tr>
                 <td>Método de Pago</td><td>{{  $response['paymentData']['media'] }}</td>
-            </tr>              
+            </tr>             
+            @endif
         </tbody>
     </table>    
 </div>
