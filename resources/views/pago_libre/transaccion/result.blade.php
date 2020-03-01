@@ -16,7 +16,6 @@
         </h1>
     </div> 
     <div class="content">
-    
         <h2 class="content-heading">Información</h2>
         <div class="col-md-12">
             <table class="table table-striped table-borderless table-header-bg">                    
