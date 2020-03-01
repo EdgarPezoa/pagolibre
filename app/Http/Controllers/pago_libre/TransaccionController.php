@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\pago_libre;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\Flow\FlowController;
 use Illuminate\Support\Facades\Auth;
@@ -126,5 +127,13 @@ class TransaccionController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function result(Request $response){
+        $usuario = Auth::user();
+        $usuarioEmail = $usuario->email;
+
+        return view('pago_libre.transaccion.result', compact('response', 'usuarioEmail'));
+
     }
 }

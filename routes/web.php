@@ -21,6 +21,7 @@ Route::middleware(['login'])->group(function () {
                 Route::get('/historicos', 'HomeController@historicos')->name('historicos');
 
                 Route::resource('/transaccion', 'TransaccionController');
+                Route::get('/transaccion/result', 'TransaccionController@result')->name('result');
                 
             });
         });

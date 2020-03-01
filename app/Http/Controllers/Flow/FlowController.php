@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Flow;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\Flow\Utils;
 use App\Models\InvoiceModel;
@@ -120,13 +119,8 @@ class FlowController extends Controller
             );
 
             $service = Utils::PAYMENT_CREATE_GET_STATUS;
-            $response = $this->sendRequest($service, $params, 'GET');
-
-            $usuario = Auth::user();
-            $usuarioEmail = $usuario->email;
-        
-            
-            return view('pago_libre.transaccion.result', compact('response', 'usuarioEmail'));
+            $response = $this->sendRequest($service, $params, 'GET');                    
+            return redirect()->route('pagolibre_transaccion.result', compact('response'));
             
         } catch (Exception $e) {
             Log::info($request);
