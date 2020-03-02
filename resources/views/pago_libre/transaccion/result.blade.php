@@ -41,7 +41,7 @@
                         @endif
                     </tbody>
                 </table>
-                <div>
+                <div class="pagoVolver">
                     <a class="btn btn-primary" href="">Volver al inicio</a>
                 </div>
             </div>
