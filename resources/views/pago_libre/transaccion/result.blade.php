@@ -8,7 +8,7 @@
                 Pago {{ $estado }}
             </h1>
             @if($response['paymentData']['date'] && $response['paymentData']['media'])
-                <p>¡Gracias por confiar en nosotros!</p>
+                <p class="ml-3 text-muted">¡Gracias por confiar en nosotros!</p>
             @endif
         </div> 
         <div class="content">
