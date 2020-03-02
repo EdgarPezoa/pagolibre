@@ -1,14 +1,16 @@
 @extends('layouts.pago_libre.backend.master')
-@section('title', 'Dashboard')
+@section('title', 'Resultado de pago')
 @section('content')
 <div class="flexCenter">
-    <div class="pago-container">
+    <div class="pago-container shadowBox">
         <div class="col-sm-12">
             <h1 class="page-heading strUpper">
                 Pago {{ $estado }}
             </h1>
             @if($response['paymentData']['date'] && $response['paymentData']['media'])
                 <p class="ml-3 text-muted">¡Gracias por confiar en nosotros!</p>
+            @else
+                <p class="ml-3 text-muted"></p>
             @endif
         </div> 
         <div class="content">
