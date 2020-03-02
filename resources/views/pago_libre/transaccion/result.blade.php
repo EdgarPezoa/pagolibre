@@ -7,6 +7,9 @@
             <h1 class="page-heading strUpper">
                 Pago {{ $estado }}
             </h1>
+            @if($response['paymentData']['date'] && $response['paymentData']['media'])
+                <p>¡Gracias por confiar en nosotros!</p>
+            @endif
         </div> 
         <div class="content">
             <h2 class="content-heading">Información</h2>
