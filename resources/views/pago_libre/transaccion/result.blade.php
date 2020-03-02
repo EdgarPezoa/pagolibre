@@ -34,13 +34,16 @@
                         @if($response['paymentData']['date'] && $response['paymentData']['media'])
                             <tr>
                                 <td>Fecha de Pago</td><td>{{  $response['paymentData']['date'] }}</td>
-                            </tr>              
+                            </tr>
                             <tr>
                                 <td>Método de Pago</td><td>{{  $response['paymentData']['media'] }}</td>
-                            </tr>             
+                            </tr>
                         @endif
                     </tbody>
-                </table>    
+                </table>
+                <div>
+                    <a class="btn btn-primary" href="">Volver al inicio</a>
+                </div>
             </div>
         </div>
     </div>
