@@ -42,7 +42,7 @@
                     </tbody>
                 </table>
                 <div class="pagoVolver">
-                    <a class="btn btn-primary" href="">Volver al inicio</a>
+                    <a class="btn btn-primary" href="{{route('pagolibre_index')}}">Volver al inicio</a>
                 </div>
             </div>
         </div>
