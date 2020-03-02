@@ -4,7 +4,7 @@
 <div class="flexCenter">
     <div class="pago-container">
         <div class="col-sm-12">
-            <h1 class="page-heading">
+            <h1 class="page-heading strUpper">
                 Pago {{ $estado }}
             </h1>
         </div> 

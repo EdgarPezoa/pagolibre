@@ -16996,3 +16996,7 @@ div.tagsinput span.tag a:hover {
   display: flex;
   justify-content: center;
 }
+
+.strUpper{
+  text-transform: uppercase;
+}
