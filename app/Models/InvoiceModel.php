@@ -24,7 +24,7 @@ class InvoiceModel extends Model
         if($invoice != null){
             return $invoice[0];
         }else{
-            return null;
+             return null;
         }
         
 

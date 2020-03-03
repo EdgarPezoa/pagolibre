@@ -16,8 +16,13 @@ class UsuarioModel extends Authenticatable
 
     protected $fillable = [
         'email',
-        'device',
-        'password'
+        'password',
+        'nombre',
+        'apellido',
+        'direccion',
+        'departamento',
+        'telefono',
+        'device'
     ];
 
     protected $hidden = [
