@@ -15,8 +15,6 @@ class HomeController extends Controller
         $usuario = Auth::user();
         $usuarioEmail = $usuario->email;
         $invoiceFactura = InvoiceModel::getInvoiceFactura();
-        Session::flash('success', 'Éxito');
-        Session::flash('error', 'Error');
         return view('pago_libre.home.index', compact('usuarioEmail','invoiceFactura'));
     }
 

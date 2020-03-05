@@ -81,11 +81,14 @@ class FlowController extends Controller
                 throw new Exception($error, 1);
             } 
             $info = curl_getinfo($cURL);
+            return array("response" => $response, "info" => $info);
         }catch (Exception $e) {
             Log::emergency($e);
+            Session::flash('error', 'Hubo un error inesperado, intenta más tarde');
+            return redirect()->route('pagolibre_index');
         }
 
-        return array("response" => $response, "info" => $info);
+        
     }
 
     // CONSULTAR DATOS se´gun un servicio
@@ -102,11 +105,13 @@ class FlowController extends Controller
                 throw new Exception($error, 1);
             }
             $info = curl_getinfo($cURL);
-
+            return array("response" => $response, "info" => $info);
         } catch (Exception $e) {
             Log::emergency($e);
+            Session::flash('error', 'Hubo un error inesperado, intenta más tarde');
+            return redirect()->route('pagolibre_index');
         }
-        return array("response" => $response, "info" => $info);
+        
     }
 
     public function result(Request $request){
