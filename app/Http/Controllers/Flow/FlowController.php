@@ -9,6 +9,7 @@ use App\Http\Controllers\Flow\Utils;
 use App\Models\InvoiceModel;
 use App\Models\TransaccionModel;
 use Exception;
+use Session;
 use Log;
 
 class FlowController extends Controller
