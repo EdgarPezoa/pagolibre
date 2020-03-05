@@ -46,15 +46,10 @@ class FlowController extends Controller
         }else if($method == "GET"){
             $response = $this->httpSendGetRequest($url, $params);
         }
-        try {
-            if(!in_array($response["info"]['http_code'], array('200', '400', '401'))) {
-                throw new Exception('Unexpected error occurred. HTTP_CODE: '.$info['http_code'] , $info['http_code']);
-            }
-        } catch (Exception $e) {
-            Log::emergency($e);
-            Session::flash('error', 'Hubo un error inesperado, intenta más tarde');
-            return redirect()->route('pagolibre_index');
-        }        
+        
+        if(!in_array($response["info"]['http_code'], array('200', '400', '401'))) {
+            throw new Exception('Unexpected error occurred. HTTP_CODE: '.$info['http_code'] , $info['http_code']);
+        }
 
         $data = json_decode($response["response"], true);
         return $data;
