@@ -149,7 +149,7 @@ class FlowController extends Controller
             
             //Actualiza los datos en su sistema
             if($response['status'] == 2){
-                $transaccion = TransaccionModel::where('commerceOrder', $response['commerceOrder'])->first();
+                $transaccion = TransaccionModel::where('cod_transaccion', $response['commerceOrder'])->first();
                 $transaccion->flowOrder = $response['flowOrder'];
                 $transaccion->cod_estado = $response['status'];
                 $transaccion->paymentMedia = $response['paymentData']['media'];
@@ -162,7 +162,7 @@ class FlowController extends Controller
                 $transaccion->transferDate = $response['paymentData']['transferDate'];
                 $transaccion->save();
             }else if($response['status'] == 3){
-                $transaccion = TransaccionModel::where('commerceOrder', $response['commerceOrder'])->first();
+                $transaccion = TransaccionModel::where('cod_transaccion', $response['commerceOrder'])->first();
                 $transaccion->flowOrder = $response['flowOrder'];
                 $transaccion->cod_estado = $response['status'];
                 $transaccion->payerEmail = $response['payer'];
