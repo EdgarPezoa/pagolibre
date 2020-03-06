@@ -21,10 +21,10 @@ class FlowController extends Controller
     protected $baseUrl;
 	
 	public function __construct() {
-		$this->apiKey = env('FLOW_APIKEY', null);
-        $this->secretKey = env('FLOW_SECRETKEY', null);
+		$this->apiKey = env('FLOW_APIKEY', "3D0FA275-C8CD-4CFB-AA96-5E967LDB34F5");
+        $this->secretKey = env('FLOW_SECRETKEY', "633d34cefda2d5360edbce84e37507da1a464cd3");
         $this->apiUrl = env('FLOW_APIURL', 'https://sandbox.flow.cl/api');
-        $this->baseUrl = env('FLOW_BASEURL', 'https://pagolibre.devmockup.cl/apiFlow');
+        $this->baseUrl = env('FLOW_BASEURL', 'https://www.pagolibre.cl/apiFlow');
         if($this->apiKey == null || $this->secretKey == null){
             return redirect()->route('home_index');
         }
@@ -37,7 +37,6 @@ class FlowController extends Controller
         $url = null;
 
         $url = $this->apiUrl."/".$service;
-        $params['apiKey'] = $this->apiKey;
         $firma = $this->firma($params);
         $params['s'] = $firma;
 
@@ -169,11 +168,16 @@ class FlowController extends Controller
         $params['urlConfirmation'] = $this->baseUrl.'/confirm';
         $params['urlReturn'] = $this->baseUrl.'/result';
         $service = Utils::PAYMENT_CREATE;
-        $request = $this->sendRequest($service, $params, 'POST');
+        try {
+            $request = $this->sendRequest($service, $params, 'POST');
+        } catch (Exception $e) {
+            Log::emergency($e);
+            return $redirect = array('error' => $e);
+        }
 
         if(isset($request["code"])){
             Log::emergency([$request["message"], $request["code"]]);
-            throw new Exception($request["message"], $request["code"]);
+            return $redirect = array('message' => [$request["message"], 'code' => $request["code"]]);
         }
         
         $redirect = $request["url"] . "?token=" . $request["token"];

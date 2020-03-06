@@ -64,6 +64,15 @@ class TransaccionController extends Controller
 
         try {
             $redirect = $flow->generarPago($params);
+            if(isset($redirect['error'])){
+                Log::emergency($redirect['error']);
+                throw new Exception($redirect['error']);
+
+            }else if(isset($redirect['code'])){
+                Log::emergency([$redirect['code'],$redirect['message']]);
+                throw new Exception($redirect['code'],$redirect['message']);
+            }
+            
         } catch (Excetion $e) {
             Log::emergency($e);
             Session::flash('error', 'Hubo un error inesperado, intenta más tarde');
