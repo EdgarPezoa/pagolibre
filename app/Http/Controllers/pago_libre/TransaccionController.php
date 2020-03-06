@@ -66,6 +66,7 @@ class TransaccionController extends Controller
             $redirect = $flow->generarPago($params);
         } catch (Excetion $e) {
             Log::emergency($e);
+            Session::flash('error', 'Hubo un error inesperado, intenta más tarde');
             return redirect()->route('pagolibre_index');
         }
         

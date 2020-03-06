@@ -48,6 +48,7 @@ class FlowController extends Controller
         }
         
         if(!in_array($response["info"]['http_code'], array('200', '400', '401'))) {
+            Log::emergency($info['http_code']);
             throw new Exception('Unexpected error occurred. HTTP_CODE: '.$info['http_code'] , $info['http_code']);
         }
 
@@ -70,25 +71,19 @@ class FlowController extends Controller
     }
 
     public function httpSendPostRequest($url, $params){
-        try {
-            $cURL = curl_init();
-            curl_setopt($cURL, CURLOPT_URL, $url);
-            curl_setopt($cURL, CURLOPT_RETURNTRANSFER, TRUE);
-            curl_setopt($cURL, CURLOPT_POST, TRUE);
-            curl_setopt($cURL, CURLOPT_POSTFIELDS, $params);
-            $response = curl_exec($cURL);
-            if($response === false) {
-                $error = curl_error($cURL);
-                throw new Exception($error, 1);
-            } 
-            $info = curl_getinfo($cURL);
-            return array("response" => $response, "info" => $info);
-        }catch (Exception $e) {
-            Log::emergency($e);
-            Session::flash('error', 'Hubo un error inesperado, intenta más tarde');
-            return redirect()->route('pagolibre_index');
-        }
-
+        $cURL = curl_init();
+        curl_setopt($cURL, CURLOPT_URL, $url);
+        curl_setopt($cURL, CURLOPT_RETURNTRANSFER, TRUE);
+        curl_setopt($cURL, CURLOPT_POST, TRUE);
+        curl_setopt($cURL, CURLOPT_POSTFIELDS, $params);
+        $response = curl_exec($cURL);
+        if($response === false) {
+            $error = curl_error($cURL);
+            Log::emergency($error);
+            throw new Exception($error, 1);
+        } 
+        $info = curl_getinfo($cURL);
+        return array("response" => $response, "info" => $info);
         
     }
 
@@ -96,22 +91,17 @@ class FlowController extends Controller
     public function httpSendGetRequest($url, $params){
         $info = null;
         $url = $url . "?" . http_build_query($params);
-        try {
-            $cURL = curl_init();
-            curl_setopt($cURL, CURLOPT_URL, $url);
-            curl_setopt($cURL, CURLOPT_RETURNTRANSFER, TRUE);
-            $response = curl_exec($cURL);
-            if($response === false) {
-                $error = curl_error($cURL);
-                throw new Exception($error, 1);
-            }
-            $info = curl_getinfo($cURL);
-            return array("response" => $response, "info" => $info);
-        } catch (Exception $e) {
-            Log::emergency($e);
-            Session::flash('error', 'Hubo un error inesperado, intenta más tarde');
-            return redirect()->route('pagolibre_index');
+        $cURL = curl_init();
+        curl_setopt($cURL, CURLOPT_URL, $url);
+        curl_setopt($cURL, CURLOPT_RETURNTRANSFER, TRUE);
+        $response = curl_exec($cURL);
+        if($response === false) {
+            $error = curl_error($cURL);
+            Log::emergency($error);
+            throw new Exception($error, 1);
         }
+        $info = curl_getinfo($cURL);
+        return array("response" => $response, "info" => $info);
         
     }
 
@@ -131,6 +121,8 @@ class FlowController extends Controller
             
         } catch (Exception $e) {
             Log::emergency($e);
+            Session::flash('error', 'Hubo un error inesperado, intenta más tarde');
+            return redirect()->route('pagolibre_index');
         }
 
         $usuario = Auth::user();
@@ -167,6 +159,8 @@ class FlowController extends Controller
 
         } catch (Exception $e) {
             Log::emergency($e);
+            Log::emergency($transaccion);
+            
         }
     }
 
@@ -178,6 +172,7 @@ class FlowController extends Controller
         $request = $this->sendRequest($service, $params, 'POST');
 
         if(isset($request["code"])){
+            Log::emergency($request["message"], $request["code"]);
             throw new Exception($request["message"], $request["code"]);
         }
         
