@@ -133,6 +133,7 @@ class FlowController extends Controller
     public function confirm(Request $request){
         try {
             if(!isset($request->token)) {
+                Log::emergency(["No se recibio el token", 1]);
                 throw new Exception("No se recibio el token", 1);
             }
             $token = filter_input(INPUT_POST, 'token');
@@ -158,8 +159,7 @@ class FlowController extends Controller
             $transaccion->save();
 
         } catch (Exception $e) {
-            Log::emergency($e);
-            Log::emergency($transaccion);
+            Log::emergency([$e,$transaccion]);
             
         }
     }
@@ -173,7 +173,7 @@ class FlowController extends Controller
 
         if(isset($request["code"])){
             Log::emergency($request["message"], $request["code"]);
-            throw new Exception($request["message"], $request["code"]);
+            throw new Exception([$request["message"], $request["code"]]);
         }
         
         $redirect = $request["url"] . "?token=" . $request["token"];
