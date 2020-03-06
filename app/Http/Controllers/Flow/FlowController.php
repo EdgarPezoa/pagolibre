@@ -128,7 +128,6 @@ class FlowController extends Controller
         $estado = EstadoModel::find($response['status'])->nombre;
         $usuario = Auth::user();
         $usuarioEmail = $usuario->email;
-        Session::flash('success', 'Pago realizado');
         return view('pago_libre.transaccion.result', compact('usuarioEmail','response','estado'));
     }
 
