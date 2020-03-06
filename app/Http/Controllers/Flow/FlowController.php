@@ -159,7 +159,7 @@ class FlowController extends Controller
                 $transaccion->paymenteBalance = $response['paymentData']['balance'];
                 $transaccion->requestDate = $response['requestDate'];
                 $transaccion->paymentDate = $response['paymentData']['date'];
-                $transaccion->transferDate = $response['paymentData']['transferDate'];
+                $transaccion->paymentTransferDate = $response['paymentData']['transferDate'];
                 $transaccion->save();
             }else if($response['status'] == 3){
                 $transaccion = TransaccionModel::where('cod_transaccion', $response['commerceOrder'])->first();
