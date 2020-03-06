@@ -125,7 +125,7 @@ class FlowController extends Controller
             Session::flash('error', 'Hubo un error inesperado, intenta más tarde');
             return redirect()->route('pagolibre_index');
         }
-        $estado = EstadoModel::find($response['status']);
+        $estado = EstadoModel::find($response['status'])->nombre;
         $usuario = Auth::user();
         $usuarioEmail = $usuario->email;
         Session::flash('success', 'Pago realizado');

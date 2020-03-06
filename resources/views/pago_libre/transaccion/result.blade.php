@@ -5,7 +5,7 @@
     <div class="pago-container shadowBox">
         <div class="col-sm-12">
             <h1 class="page-heading strUpper">
-                Pago {{ $estado }}
+                {{ 'Orden: '.$estado }}
             </h1>
             @if($response['paymentData']['date'] && $response['paymentData']['media'])
                 <p class="ml-3 text-muted">¡Gracias por confiar en nosotros!</p>
@@ -31,7 +31,7 @@
                             <td>Descripción</td><td>{{ $response['subject'] }}</td>
                         </tr>
                         <tr>
-                            <td>Monto</td><td>{{ $response['amount'] }}</td>
+                            <td>Monto</td><td>{{ '$'.number_format($response['amount'],0,'.','.') }}</td>
                         </tr>
                         <tr>
                             <td>Correo del Pagador</td><td>{{ $response['payer'] }}</td>
