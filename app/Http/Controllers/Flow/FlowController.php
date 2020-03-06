@@ -114,6 +114,7 @@ class FlowController extends Controller
             $params = array(
                 "token" => $token
             );
+            $params['apiKey'] = $this->apiKey;
 
             $service = Utils::PAYMENT_CREATE_GET_STATUS;
             $response = $this->sendRequest($service, $params, 'GET');
@@ -141,6 +142,7 @@ class FlowController extends Controller
             $params = array(
                 "token" => $token
             );
+            $params['apiKey'] = $this->apiKey;
 
             $service = Utils::PAYMENT_CREATE_GET_STATUS;
             $response = $this->sendRequest($service, $params, 'GET');
@@ -166,6 +168,7 @@ class FlowController extends Controller
     }
 
     public function generarPago($params){
+        $params['apiKey'] = $this->apiKey;
         $params['urlConfirmation'] = $this->baseUrl.'/confirm';
         $params['urlReturn'] = $this->baseUrl.'/result';
         $service = Utils::PAYMENT_CREATE;
