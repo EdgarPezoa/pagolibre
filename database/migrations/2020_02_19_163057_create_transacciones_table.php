@@ -24,9 +24,9 @@ class CreateTransaccionesTable extends Migration
             $table->unsignedBigInteger('amount');
             $table->string('paymentMedia')->nullable();
             $table->string('payerEmail')->nullable();
-            $table->integer('paymenteFee')->nullable();
-            $table->integer('paymenteTaxes')->nullable();
-            $table->integer('paymenteBalance')->nullable();
+            $table->double('paymenteFee', 255, 2)->nullable();
+            $table->double('paymenteTaxes', 255, 2)->nullable();
+            $table->double('paymenteBalance', 255, 2)->nullable();
             $table->timestamp('requestDate')->nullable();
             $table->timestamp('paymentDate')->nullable();
             $table->timestamp('paymentTransferDate')->nullable();
