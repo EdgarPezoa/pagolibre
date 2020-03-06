@@ -8,7 +8,8 @@ use App\Http\Controllers\Flow\FlowController;
 use Illuminate\Support\Facades\Auth;
 use App\Models\InvoiceModel;
 use App\Models\TransaccionModel;
-use Excetion;
+use Exception;
+use Log;
 
 class TransaccionController extends Controller
 {
@@ -72,7 +73,7 @@ class TransaccionController extends Controller
                 Log::emergency([$redirect['code'],$redirect['message']]);
                 throw new Exception($redirect['code'].' - '.$redirect['message']);
             }
-        } catch (Excetion $e) {
+        } catch (Exception $e) {
             Log::emergency($e);
             if(isset($redirect['code'])){
                 Session::flash($e);
