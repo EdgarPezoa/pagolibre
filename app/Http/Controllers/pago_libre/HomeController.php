@@ -15,6 +15,11 @@ class HomeController extends Controller
         $usuario = Auth::user();
         $usuarioEmail = $usuario->email;
         $invoiceFactura = InvoiceModel::getInvoiceFactura();
+        $transaccion = TransaccionModel::where('invoice_id', '=', $invoiceFactura->fld_Id);
+        if($transaccion->cod_estado == 2){
+            $invoiceFactura == null;
+        }
+        
         return view('pago_libre.home.index', compact('usuarioEmail','invoiceFactura'));
     }
 
