@@ -46,6 +46,8 @@ class FlowController extends Controller
             $response = $this->httpSendGetRequest($url, $params);
         }
         
+        dd($response);
+
         if(!in_array($response["info"]['http_code'], array('200', '400', '401'))) {
             throw new Exception('Unexpected error occurred. HTTP_CODE: '.$info['http_code'] , $info['http_code']);
         }
