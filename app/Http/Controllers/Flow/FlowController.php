@@ -172,8 +172,8 @@ class FlowController extends Controller
         $request = $this->sendRequest($service, $params, 'POST');
 
         if(isset($request["code"])){
-            Log::emergency($request["message"], $request["code"]);
-            throw new Exception([$request["message"], $request["code"]]);
+            Log::emergency([$request["message"], $request["code"]]);
+            throw new Exception($request["message"], $request["code"]);
         }
         
         $redirect = $request["url"] . "?token=" . $request["token"];
