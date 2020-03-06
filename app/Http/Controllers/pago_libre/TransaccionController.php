@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\InvoiceModel;
 use App\Models\TransaccionModel;
 use Exception;
+use Session;
 use Log;
 
 class TransaccionController extends Controller
@@ -76,7 +77,7 @@ class TransaccionController extends Controller
         } catch (Exception $e) {
             Log::emergency($e);
             if(isset($redirect['code'])){
-                Session::flash($e);
+                Session::flash('error', 'Hubo un error inesperado, intenta más tarde');
             }else{
                 Session::flash('error', 'Hubo un error inesperado, intenta más tarde');
             }
