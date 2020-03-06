@@ -70,12 +70,15 @@ class TransaccionController extends Controller
 
             }else if(isset($redirect['code'])){
                 Log::emergency([$redirect['code'],$redirect['message']]);
-                throw new Exception($redirect['code'],$redirect['message']);
+                throw new Exception($redirect['code'].' - '.$redirect['message']);
             }
-            
         } catch (Excetion $e) {
             Log::emergency($e);
-            Session::flash('error', 'Hubo un error inesperado, intenta más tarde');
+            if(isset($redirect['code'])){
+                Session::flash($e);
+            }else{
+                Session::flash('error', 'Hubo un error inesperado, intenta más tarde');
+            }
             return redirect()->route('pagolibre_index');
         }
         

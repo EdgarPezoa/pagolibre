@@ -177,7 +177,10 @@ class FlowController extends Controller
 
         if(isset($request["code"])){
             Log::emergency([$request["message"], $request["code"]]);
-            return $redirect = array('message' => [$request["message"], 'code' => $request["code"]]);
+            return $redirect = array(
+                'message' => $request["message"], 
+                'code' => $request["code"]
+            );
         }
         
         $redirect = $request["url"] . "?token=" . $request["token"];
