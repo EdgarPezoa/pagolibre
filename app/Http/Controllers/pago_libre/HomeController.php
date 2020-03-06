@@ -15,7 +15,7 @@ class HomeController extends Controller
         $usuario = Auth::user();
         $usuarioEmail = $usuario->email;
         $invoiceFactura = InvoiceModel::getInvoiceFactura();
-        $transaccion = TransaccionModel::where('invoice_id', '=', $invoiceFactura->fld_Id);
+        $transaccion = TransaccionModel::where('invoice_id', '=', $invoiceFactura->fld_Id)->where('cod_usuario', '=', $usuario->id_usuario);
         if($transaccion->cod_estado == 2){
             $invoiceFactura == null;
         }
