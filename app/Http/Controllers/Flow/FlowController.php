@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Controllers\Flow\Utils;
 use App\Models\InvoiceModel;
 use App\Models\TransaccionModel;
+use App\Models\EstadoModel;
 use Exception;
 use Session;
 use Log;
@@ -38,8 +39,8 @@ class FlowController extends Controller
 
         $url = $this->apiUrl."/".$service;
         $firma = $this->firma($params);
+        $params['apiKey'] = $this->apiKey;
         $params['s'] = $firma;
-
         if($method == "POST"){
             $response = $this->httpSendPostRequest($url, $params);
         }else if($method == "GET"){
@@ -123,10 +124,11 @@ class FlowController extends Controller
             Session::flash('error', 'Hubo un error inesperado, intenta más tarde');
             return redirect()->route('pagolibre_index');
         }
-
+        $estado = EstadoModel::find($response['status']);
         $usuario = Auth::user();
         $usuarioEmail = $usuario->email;
-        return view('pago_libre.transaccion.result', compact('usuarioEmail','response'));
+        Session::flash('success', 'Pago realizado');
+        return view('pago_libre.transaccion.result', compact('usuarioEmail','response','estado'));
     }
 
     public function confirm(Request $request){
@@ -164,7 +166,6 @@ class FlowController extends Controller
     }
 
     public function generarPago($params){
-        $params['apiKey'] = $this->apiKey;
         $params['urlConfirmation'] = $this->baseUrl.'/confirm';
         $params['urlReturn'] = $this->baseUrl.'/result';
         $service = Utils::PAYMENT_CREATE;
