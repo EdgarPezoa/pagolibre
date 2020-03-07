@@ -12,15 +12,19 @@ use Session;
 class HomeController extends Controller
 {
     public function index(){
+        $facturas = array();
         $usuario = Auth::user();
         $usuarioEmail = $usuario->email;
-        $invoiceFactura = InvoiceModel::getInvoiceFactura();
-        $transaccion = TransaccionModel::where('invoice_id', '=', $invoiceFactura->fld_Id)->where('cod_usuario', '=', $usuario->id_usuario)->where('cod_estado', '=', 2)->first();
-        if(isset($transaccion) && $transaccion->cod_estado == 2){
-            $invoiceFactura = null;
+        $invoiceFacturas = InvoiceModel::getInvoiceFactura();
+
+        foreach($invoiceFacturas as $invoiceFactura){
+            $transaccion = TransaccionModel::where('invoice_id', '=', $invoiceFactura->fld_Id)->where('cod_usuario', '=', $usuario->id_usuario)->where('cod_estado', '=', 2)->first();
+            if(!isset($transaccion)){
+                array_push($facturas, $invoiceFactura);
+            }
         }
         
-        return view('pago_libre.home.index', compact('usuarioEmail','invoiceFactura'));
+        return view('pago_libre.home.index', compact('usuarioEmail','facturas'));
     }
 
     // @TODOO BORRAR

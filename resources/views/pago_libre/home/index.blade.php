@@ -45,57 +45,57 @@
             </ul>
             <div class="block-content tab-content">
                 <div class="tab-pane fade fade-up in active" id="btabs-animated-slideup-resumen">
-                    @if($invoiceFactura !=null)
-                        <h4 class="font-w300 push-15 tituloResumen">Resumen</h4>
-                        <p class="text-muted subtituloResumen">Información de la cuenta</p>
-                        <hr>
-                        <div class="resumenContainer">
-                            <div class="resumenItem">
-                                <p class="resumenLabelTitle">N° de Factura</p>
-                                <p class="valorResumen">{{$invoiceFactura->fld_Id}}</p>
+                    @if(isset($facturas))
+                        @foreach($facturas as $factura)
+                            <h4 class="font-w300 push-15 tituloResumen">Resumen</h4>
+                            <p class="text-muted subtituloResumen">Información de la cuenta</p>
+                            <hr>
+                            <div class="resumenContainer">
+                                <div class="resumenItem">
+                                    <p class="resumenLabelTitle">N° de Factura</p>
+                                    <p class="valorResumen">{{$factura->fld_Id}}</p>
+                                </div>
+                                <div class="resumenItem">
+                                    <p class="resumenLabelTitle">Fecha inicio de facturacion</p>
+                                    <p class="valorResumen">{{$factura->fld_InvoiceStartDateTime}}</p>
+                                </div>
+                                <div class="resumenItem">
+                                    <p class="resumenLabelTitle">Fecha termino de Facturacion</p>
+                                    <p class="valorResumen">{{$factura->fld_InvoiceEndDateTime}}</p>
+                                </div>
                             </div>
-                            <div class="resumenItem">
-                                <p class="resumenLabelTitle">Fecha inicio de facturacion</p>
-                                <p class="valorResumen">{{$invoiceFactura->fld_InvoiceStartDateTime}}</p>
-                                <?php //date('m/d/Y',time($invoiceFactura->fld_InvoiceStartDateTime)) ?>
-                            </div>
-                            <div class="resumenItem">
-                                <p class="resumenLabelTitle">Fecha termino de Facturacion</p>
-                                <p class="valorResumen">{{$invoiceFactura->fld_InvoiceEndDateTime}}</p>
-                                <?php //date('m/d/Y',time($invoiceFactura->fld_InvoiceEndDateTime)) ?>
-                            </div>
-                        </div>
 
-                        <div class="resumenContainer">
-                            <div class="resumenItem">
-                                <p class="resumenLabelTitle">Consumo en KW</p>
-                                <p class="valorResumen">{{$invoiceFactura->fld_InvoiceConsumption}}</p>
+                            <div class="resumenContainer">
+                                <div class="resumenItem">
+                                    <p class="resumenLabelTitle">Consumo en KW</p>
+                                    <p class="valorResumen">{{$factura->fld_InvoiceConsumption}}</p>
+                                </div>
+                                <div class="resumenItem">
+                                    <p class="resumenLabelTitle">Valor inicial en KW</p>
+                                    <p class="valorResumen">{{$factura->fld_InvoiceStartIndex}}</p>
+                                </div>
+                                <div class="resumenItem">
+                                    <p class="resumenLabelTitle">Valor de termino en KW</p>
+                                    <p class="valorResumen">{{$factura->fld_InvoiceEndIndex}}</p>
+                                </div>
                             </div>
-                            <div class="resumenItem">
-                                <p class="resumenLabelTitle">Valor inicial en KW</p>
-                                <p class="valorResumen">{{$invoiceFactura->fld_InvoiceStartIndex}}</p>
-                            </div>
-                            <div class="resumenItem">
-                                <p class="resumenLabelTitle">Valor de termino en KW</p>
-                                <p class="valorResumen">{{$invoiceFactura->fld_InvoiceEndIndex}}</p>
-                            </div>
-                        </div>
 
-                        <hr>
+                            <hr>
 
-                        <div class="resumenContainerForm">
-                            <div class="resumenItem">
-                                <input type="radio" id="saldo" name="saldo" value="saldo" checked>
-                                <label class="resumenLabelTitle" for="saldo">Saldo vigente: <span>{{'$'.number_format($invoiceFactura->fld_InvoiceAmount,0,',','.')}}</span></label><br>
+                            <div class="resumenContainerForm">
+                                <div class="resumenItem">
+                                    <input type="radio" id="saldo" name="saldo" value="saldo" checked>
+                                    <label class="resumenLabelTitle" for="saldo">Saldo vigente: <span>{{'$'.number_format($factura->fld_InvoiceAmount,0,',','.')}}</span></label><br>
+                                </div>
+                                <div class="resumenItem">
+                                    {{ Form::open(['route' => 'pagolibre_transaccion.store', 'method' => 'post']) }}
+                                        {{Form::hidden('id', $factura->fld_Id)}}
+                                        {{Form::submit('INICIAR PAGO',['class'=>'btn btn-danger'])}}
+                                        <button class="btn btn-primary">VER DETALLES ></button>
+                                    {{ Form::close() }}
+                                </div>
                             </div>
-                            <div class="resumenItem">
-                                {{ Form::open(['route' => 'pagolibre_transaccion.store', 'method' => 'post']) }}
-                                    {{Form::hidden('id', $invoiceFactura->fld_Id)}}
-                                    {{Form::submit('INICIAR PAGO',['class'=>'btn btn-danger'])}}
-                                    <button class="btn btn-primary">VER DETALLES ></button>
-                                {{ Form::close() }}
-                            </div>
-                        </div>
+                        @endforeach
                     @else
                         <h2 class="text-center sinFacturaDashboard">¡No hay facturas disponibles!</h2>
                     @endif
