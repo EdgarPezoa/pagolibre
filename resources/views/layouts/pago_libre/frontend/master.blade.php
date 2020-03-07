@@ -4,7 +4,7 @@
     <head>
         <meta charset="utf-8">
 
-        <title>KIO</title>
+        <title>PagoLibre</title>
 
         <meta name="description" content="OneUI - Admin Dashboard Template & UI Framework created by pixelcave and published on Themeforest">
         <meta name="author" content="pixelcave">
