@@ -44,11 +44,12 @@
                 </li>
             </ul>
             <div class="block-content tab-content">
-                <div class="tab-pane fade fade-up in active" id="btabs-animated-slideup-resumen">
+                <div class="tab-pane fade fade-up in active contenedorFacturas" id="btabs-animated-slideup-resumen">
                     <h4 class="font-w300 push-15 tituloResumen">Resumen</h4>
                     <p class="text-muted subtituloResumen">Información de la cuenta</p>
                     @if(isset($facturas))
                         @foreach($facturas as $contador => $factura)
+                        <div class="contenedorFactura">
                             <hr>
                             <div class="resumenContainer">
                                 <div class="resumenItem">
@@ -88,11 +89,14 @@
                                     <label class="resumenLabelTitle" for="saldo{{$factura->fld_Id}}">Saldo vigente: <span>{{'$'.number_format($factura->fld_InvoiceAmount,0,',','.')}}</span></label><br>
                                 </div>
                             </div>
+                        </div>
                         @endforeach
+                        
                         <div class="resumenContainerForm">
                             <div class="resumenItem">
                                 {{ Form::open(['route' => 'pagolibre_transaccion.store', 'method' => 'post']) }}
                                     {{Form::hidden('id', null, ['id'=>'id'])}}
+                                    <span id="error" class="errorRadio">Debes seleccionar una factura</span>
                                     {{Form::submit('INICIAR PAGO',['class'=>'btn btn-danger'])}}
                                     <button class="btn btn-primary">VER DETALLES ></button>
                                 {{ Form::close() }}
