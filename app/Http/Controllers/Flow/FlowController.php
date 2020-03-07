@@ -126,7 +126,7 @@ class FlowController extends Controller
             return redirect()->route('pagolibre_index');
         }
         $estado = EstadoModel::find($response['status'])->nombre;
-        $usuario = Auth::user();
+        $usuario = Auth::user();        
         $usuarioEmail = $usuario->email;
         return view('pago_libre.transaccion.result', compact('usuarioEmail','response','estado'));
     }

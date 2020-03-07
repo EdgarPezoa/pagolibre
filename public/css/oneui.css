@@ -16963,6 +16963,14 @@ div.tagsinput span.tag a:hover {
   justify-content: space-between;
   padding-bottom: 20px;
   margin-left: 1%;
+  margin-top: 20px;
+  align-items: center;
+}
+
+.resumenContainerForm .resumenForm{
+  width: 100%;
+  justify-content: flex-end;
+  display: flex;  
 }
 
 .tituloResumen{
@@ -17019,9 +17027,12 @@ div.tagsinput span.tag a:hover {
   color:red;
   text-transform: uppercase;
   margin: 5px;
+  width: 100%;
+  align-items: center;
 }
 
-.contenedorFacturas .contenedorFactura{
+.contenedorFacturas .contenedorFactura:nth-child(odd){
+  background-color: #f7f7f7;
   
 }
 .contenedorFactura{
