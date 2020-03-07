@@ -97,7 +97,7 @@
                                 {{ Form::open(['route' => 'pagolibre_transaccion.store', 'method' => 'post']) }}
                                     {{Form::hidden('id', null, ['id'=>'id'])}}
                                     <span id="error" class="errorRadio">Debes seleccionar una factura</span>
-                                    {{Form::submit('INICIAR PAGO',['class'=>'btn btn-danger'])}}
+                                    {{Form::submit('INICIAR PAGO',['class'=>'btn btn-danger','id'=>'formSubmit'])}}
                                     <button class="btn btn-primary">VER DETALLES ></button>
                                 {{ Form::close() }}
                             </div>
