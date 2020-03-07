@@ -94,7 +94,7 @@
                         
                         <div class="resumenContainerForm">
                             <div class="resumenItem">
-                                {{ Form::open(['route' => 'pagolibre_transaccion.store', 'method' => 'post']) }}
+                                {{ Form::open(['route' => 'pagolibre_transaccion.store', 'method' => 'post', 'id' => 'formPago']) }}
                                     {{Form::hidden('id', null, ['id'=>'id'])}}
                                     <span id="error" class="errorRadio">Debes seleccionar una factura</span>
                                     {{Form::submit('INICIAR PAGO',['class'=>'btn btn-danger','id'=>'formSubmit'])}}
