@@ -88,15 +88,17 @@
                                     <input type="radio" id="saldo" name="saldo" value="{{$factura->fld_Id}}">
                                     <label class="resumenLabelTitle" for="saldo">Saldo vigente: <span>{{'$'.number_format($factura->fld_InvoiceAmount,0,',','.')}}</span></label><br>
                                 </div>
-                                <div class="resumenItem">
-                                    {{ Form::open(['route' => 'pagolibre_transaccion.store', 'method' => 'post']) }}
-                                        {{Form::hidden('id', null)}}
-                                        {{Form::submit('INICIAR PAGO',['class'=>'btn btn-danger'])}}
-                                        <button class="btn btn-primary">VER DETALLES ></button>
-                                    {{ Form::close() }}
-                                </div>
                             </div>
                         @endforeach
+                        <div class="resumenContainerForm">
+                            <div class="resumenItem">
+                                {{ Form::open(['route' => 'pagolibre_transaccion.store', 'method' => 'post']) }}
+                                    {{Form::hidden('id', null, ['id'=>'id'])}}
+                                    {{Form::submit('INICIAR PAGO',['class'=>'btn btn-danger'])}}
+                                    <button class="btn btn-primary">VER DETALLES ></button>
+                                {{ Form::close() }}
+                            </div>
+                        </div>
                     @else
                         <h2 class="text-center sinFacturaDashboard">¡No hay facturas disponibles!</h2>
                     @endif
