@@ -17,11 +17,15 @@ class HomeController extends Controller
         $usuarioEmail = $usuario->email;
         $invoiceFacturas = InvoiceModel::getInvoiceFactura();
 
-        foreach($invoiceFacturas as $invoiceFactura){
-            $transaccion = TransaccionModel::where('invoice_id', '=', $invoiceFactura->fld_Id)->where('cod_usuario', '=', $usuario->id_usuario)->where('cod_estado', '=', 2)->first();
-            if(!isset($transaccion)){
-                array_push($facturas, $invoiceFactura);
+        if($invoiceFacturas){
+            foreach($invoiceFacturas as $invoiceFactura){
+                $transaccion = TransaccionModel::where('invoice_id', '=', $invoiceFactura->fld_Id)->where('cod_usuario', '=', $usuario->id_usuario)->where('cod_estado', '=', 2)->first();
+                if(!isset($transaccion)){
+                    array_push($facturas, $invoiceFactura);
+                }
             }
+        }else{
+            $facturas = null;
         }
         
         return view('pago_libre.home.index', compact('usuarioEmail','facturas'));
