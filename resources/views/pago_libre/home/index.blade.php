@@ -85,8 +85,8 @@
 
                             <div class="resumenContainerForm">
                                 <div class="resumenItem">
-                                    <input type="radio" id="saldo" name="saldo" value="{{$factura->fld_Id}}">
-                                    <label class="resumenLabelTitle" for="saldo">Saldo vigente: <span>{{'$'.number_format($factura->fld_InvoiceAmount,0,',','.')}}</span></label><br>
+                                    <input type="radio" id="saldo{{$factura->fld_Id}}" name="saldo" value="{{$factura->fld_Id}}">
+                                    <label class="resumenLabelTitle" for="saldo{{$factura->fld_Id}}">Saldo vigente: <span>{{'$'.number_format($factura->fld_InvoiceAmount,0,',','.')}}</span></label><br>
                                 </div>
                             </div>
                         @endforeach
