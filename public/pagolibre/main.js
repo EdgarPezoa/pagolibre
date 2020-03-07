@@ -4,4 +4,7 @@ $(document).ready(function () {
         $(this).parents('.row').fadeOut(400);
     });
     
+    $('input[type=radio]').change(function() {
+        $('#id').value = this.value;
+    });
 });

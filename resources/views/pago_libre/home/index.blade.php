@@ -48,7 +48,8 @@
                     <h4 class="font-w300 push-15 tituloResumen">Resumen</h4>
                     <p class="text-muted subtituloResumen">Información de la cuenta</p>
                     @if(isset($facturas))
-                        @foreach($facturas as $factura)
+                        @foreach($facturas as $contador => $factura)
+                            <p class="text-muted subtituloResumen">Factura -{{$contador}}</p>
                             <hr>
                             <div class="resumenContainer">
                                 <div class="resumenItem">
@@ -84,12 +85,12 @@
 
                             <div class="resumenContainerForm">
                                 <div class="resumenItem">
-                                    <input type="radio" id="saldo" name="saldo" value="saldo" checked>
+                                    <input type="radio" id="saldo" name="saldo" value="{{$factura->fld_Id}}">
                                     <label class="resumenLabelTitle" for="saldo">Saldo vigente: <span>{{'$'.number_format($factura->fld_InvoiceAmount,0,',','.')}}</span></label><br>
                                 </div>
                                 <div class="resumenItem">
                                     {{ Form::open(['route' => 'pagolibre_transaccion.store', 'method' => 'post']) }}
-                                        {{Form::hidden('id', $factura->fld_Id)}}
+                                        {{Form::hidden('id', null)}}
                                         {{Form::submit('INICIAR PAGO',['class'=>'btn btn-danger'])}}
                                         <button class="btn btn-primary">VER DETALLES ></button>
                                     {{ Form::close() }}
