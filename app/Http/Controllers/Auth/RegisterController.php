@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use DB;
 
 class RegisterController extends Controller
 {
@@ -47,7 +48,13 @@ class RegisterController extends Controller
      * @return \Illuminate\Contracts\Validation\Validator
      */
     protected function validator(array $data)
-    {
+    {    
+        $messages= array(
+            'fld_Id.exists' => 'Dispositivo no se encuentra en nuestros registros',
+            'fld_Id.required' => 'Campo requerido',
+            'fld_Id.integer' => 'Campo debe ser un número',
+            'fld_Id.min' => 'Campo debe ser minimo 1',
+        );
         return Validator::make($data, [
             'email' => 'required|string|email|max:255|unique:usuario',
             'password' => 'required|string|min:6|confirmed',
@@ -56,8 +63,8 @@ class RegisterController extends Controller
             'direccion' => 'required|string|max:255',
             'departamento' => 'required|string|max:255',
             'telefono' => 'required|string|max:255',
-            'device' => 'required|integer|min:1|max:100',
-        ]);
+            'fld_Id' => 'required|integer|min:1|exists:KlmIOT_sqlsrv.tbl_EM_Device',
+        ],$messages);
     }
 
     /**
@@ -68,6 +75,7 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        
         return UsuarioModel::create([
             'email'         => $data['email'],
             'password'      => Hash::make($data['password']),
@@ -76,7 +84,7 @@ class RegisterController extends Controller
             'direccion'     => $data['direccion'],
             'departamento'  => $data['departamento'],
             'telefono'      => $data['telefono'],
-            'device'        => $data['device'] 
+            'device'        => $data['fld_Id'] 
         ]);
     }
 }
