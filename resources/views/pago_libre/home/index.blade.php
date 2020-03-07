@@ -49,7 +49,6 @@
                     <p class="text-muted subtituloResumen">Información de la cuenta</p>
                     @if(isset($facturas))
                         @foreach($facturas as $contador => $factura)
-                            <p class="text-muted subtituloResumen">Factura -{{$contador}}</p>
                             <hr>
                             <div class="resumenContainer">
                                 <div class="resumenItem">
