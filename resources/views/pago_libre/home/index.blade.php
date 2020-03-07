@@ -45,10 +45,10 @@
             </ul>
             <div class="block-content tab-content">
                 <div class="tab-pane fade fade-up in active" id="btabs-animated-slideup-resumen">
+                    <h4 class="font-w300 push-15 tituloResumen">Resumen</h4>
+                    <p class="text-muted subtituloResumen">Información de la cuenta</p>
                     @if(isset($facturas))
                         @foreach($facturas as $factura)
-                            <h4 class="font-w300 push-15 tituloResumen">Resumen</h4>
-                            <p class="text-muted subtituloResumen">Información de la cuenta</p>
                             <hr>
                             <div class="resumenContainer">
                                 <div class="resumenItem">
