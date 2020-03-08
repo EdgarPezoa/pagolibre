@@ -12,6 +12,7 @@ use App\Models\EstadoModel;
 use Exception;
 use Session;
 use Log;
+use DB;
 
 class FlowController extends Controller
 {
@@ -164,13 +165,18 @@ class FlowController extends Controller
                 
 
                 //ACTUALIZA EL MODELO DE KIO
-                $updateData = array('fld_InvoiceCharged' => 1, 'fld_InvoiceChargeDateTime' => $response['paymentData']['date'], 'fld_InvoiceChargeUserName' => 'Webpay', 'invoice_id' => $transaccion->invoice_id);
-                DB::statement( "UPDATE tbl_EM_Invoice SET 
-                                    fld_InvoiceCharged = :fld_InvoiceCharged,
-                                    fld_InvoiceChargeDateTime =':fld_InvoiceChargeDateTime',
-                                    fld_InvoiceChargeUserName = ':fld_InvoiceChargeUserName'
-                                WHERE fld_Id = :invoice_id ;", 
-                $updateData);
+                $updateData = array(
+                    'InvoiceCharged' => 1,
+                    'InvoiceChargeDateTime' => $response['paymentData']['date'],
+                    'InvoiceChargeUserName' => 'Webpay',
+                    'invoice_id' => $transaccion->invoice_id
+                );
+                DB::connection('KlmIOT_sqlsrv')->statement("
+                UPDATE 
+                    tbl_EM_Invoice SET fld_InvoiceCharged = 1,
+                    fld_InvoiceChargeDateTime ='".$response['paymentData']['date']."',
+                    fld_InvoiceChargeUserName = 'Webpay'
+                WHERE fld_Id = ".$transaccion->invoice_id.";");
 
             }else if($response['status'] == 3){
                 $transaccion = TransaccionModel::where('cod_transaccion', $response['commerceOrder'])->first();
