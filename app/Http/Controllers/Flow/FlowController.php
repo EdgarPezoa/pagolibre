@@ -148,6 +148,7 @@ class FlowController extends Controller
             
             //Actualiza los datos en su sistema
             if($response['status'] == 2){
+                //Actualiza el modelo de PAGOLIBRE
                 $transaccion = TransaccionModel::where('cod_transaccion', $response['commerceOrder'])->first();
                 $transaccion->flowOrder = $response['flowOrder'];
                 $transaccion->cod_estado = $response['status'];
@@ -160,6 +161,17 @@ class FlowController extends Controller
                 $transaccion->paymentDate = $response['paymentData']['date'];
                 $transaccion->paymentTransferDate = $response['paymentData']['transferDate'];
                 $transaccion->save();
+                
+
+                //ACTUALIZA EL MODELO DE KIO
+                $updateData = array('fld_InvoiceCharged' => 1, 'fld_InvoiceChargeDateTime' => $response['paymentData']['date'], 'fld_InvoiceChargeUserName' => 'Webpay', 'invoice_id' => $transaccion->invoice_id);
+                DB::statement( "UPDATE tbl_EM_Invoice SET 
+                                    fld_InvoiceCharged = :fld_InvoiceCharged,
+                                    fld_InvoiceChargeDateTime =':fld_InvoiceChargeDateTime',
+                                    fld_InvoiceChargeUserName = ':fld_InvoiceChargeUserName'
+                                WHERE fld_Id = :invoice_id ;", 
+                $updateData);
+
             }else if($response['status'] == 3){
                 $transaccion = TransaccionModel::where('cod_transaccion', $response['commerceOrder'])->first();
                 $transaccion->flowOrder = $response['flowOrder'];
