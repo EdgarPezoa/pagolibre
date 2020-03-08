@@ -9,7 +9,7 @@
 
     <title>@yield('title') | PagoLibre</title>
 
-    <meta name="description" content="Edgar Leonardo Pezoa Soto">
+    <meta name="description" content="PLATAFORMA DE PAGOS PARA COMUNIDADES QUE OPERAN COMO CLIENTES LIBRES">
     <meta name="author" content="Edgar Leonardo Pezoa Soto">
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1.0">
 
