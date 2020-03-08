@@ -33,8 +33,8 @@ class TransaccionController extends Controller
         $invoice = InvoiceModel::getInvoiceWhereFactura($request->id);
 
         $optional = array(
-            "rut" => "17244050-9",
-            "nombre" => "Rodolfo"
+            "nombre" => $usuario->nombre,
+            "apellido" => $usuario->apellido,
         );
         $optional = json_encode($optional);
         $transaccion = TransaccionModel::create([
