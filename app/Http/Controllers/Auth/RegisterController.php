@@ -63,7 +63,7 @@ class RegisterController extends Controller
             'direccion' => 'required|string|max:255',
             'departamento' => 'required|string|max:255',
             'telefono' => 'required|string|max:255',
-            'fld_Id' => 'required|integer|min:1|exists:KlmIOT_sqlsrv.tbl_EM_Device',
+            'fld_DeviceSerialNr' => 'required|integer|min:1|exists:KlmIOT_sqlsrv.tbl_EM_Device',
         ],$messages);
     }
 

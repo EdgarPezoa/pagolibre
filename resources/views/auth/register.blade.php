@@ -96,13 +96,13 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="fld_Id" class="col-md-4 col-form-label text-md-right">{{ __('Número de dispositivo') }}</label>
+                            <label for="fld_DeviceSerialNr" class="col-md-4 col-form-label text-md-right">{{ __('Número de dispositivo') }}</label>
                             <div class="col-md-6">
-                                <input id="fld_Id" min="1" type="number" class="form-control{{ $errors->has('fld_Id') ? ' is-invalid' : '' }}" name="fld_Id" required>
+                                <input id="fld_DeviceSerialNr" min="1" type="number" class="form-control{{ $errors->has('fld_DeviceSerialNr') ? ' is-invalid' : '' }}" name="fld_DeviceSerialNr" required>
 
-                                @if ($errors->has('fld_Id'))
+                                @if ($errors->has('fld_DeviceSerialNr'))
                                     <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('fld_Id') }}</strong>
+                                        <strong>{{ $errors->first('fld_DeviceSerialNr') }}</strong>
                                     </span>
                                 @endif
                             </div>
