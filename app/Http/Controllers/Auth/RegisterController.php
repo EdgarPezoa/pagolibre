@@ -50,10 +50,10 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {    
         $messages= array(
-            'fld_Id.exists' => 'Dispositivo no se encuentra en nuestros registros',
-            'fld_Id.required' => 'Campo requerido',
-            'fld_Id.integer' => 'Campo debe ser un número',
-            'fld_Id.min' => 'Campo debe ser minimo 1',
+            'fld_DeviceSerialNr.exists' => 'Dispositivo no se encuentra en nuestros registros',
+            'fld_DeviceSerialNr.required' => 'Campo requerido',
+            'fld_DeviceSerialNr.integer' => 'Campo debe ser un número',
+            'fld_DeviceSerialNr.min' => 'Campo debe ser minimo 1',
         );
         return Validator::make($data, [
             'email' => 'required|string|email|max:255|unique:usuario',
