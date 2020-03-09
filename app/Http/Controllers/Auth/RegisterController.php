@@ -84,7 +84,7 @@ class RegisterController extends Controller
             'direccion'     => $data['direccion'],
             'departamento'  => $data['departamento'],
             'telefono'      => $data['telefono'],
-            'device'        => $data['fld_Id'] 
+            'device'        => $data['fld_DeviceSerialNr'] 
         ]);
     }
 }
